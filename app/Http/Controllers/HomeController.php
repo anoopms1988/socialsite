@@ -59,10 +59,10 @@ class HomeController extends Controller {
                 return redirect('/')->withErrors($validator);
             } else {
                 if (Auth::attempt(['email' => $email, 'password' => $password])) {
-                    return redirect()->intended('dashboard');
+                    return redirect()->intended('admin/dashboard');
                 } else {
                     return redirect('/')->with('loginerror', 'User dont exist');
-                    ;
+                    
                 }
             }
         } catch (Exception $exc) {
@@ -77,5 +77,12 @@ class HomeController extends Controller {
         return view('home.dashboard');
     }
     
+     /**
+     * @purpose logout
+     */
+     public function logout() {
+        Auth::logout();
+        return redirect('/');
+    }
 
 }

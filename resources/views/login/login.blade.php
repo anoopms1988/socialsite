@@ -41,7 +41,7 @@
                             @if(Session::has('loginerror'))
                             <p class="alert {{ Session::get('alert-class', 'alert-warning') }}">{{ Session::get('loginerror') }}</p>
                             @endif
-                            <?php echo Form::open(array('url' => 'authenticate', 'method' => 'post')); ?>
+                            <?php echo Form::open(array('url' => 'admin/authenticate', 'method' => 'post')); ?>
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email"  type="text" autofocus>
