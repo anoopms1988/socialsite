@@ -12,9 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index');
-
 Route::get('home', 'HomeController@index');
 Route::post('authenticate', 'HomeController@authenticate');
+Route::get('dashboard','HomeController@viewDashboard');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

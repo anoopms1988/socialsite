@@ -38,24 +38,26 @@
                             <h3 class="panel-title">Please Sign In</h3>
                         </div>
                         <div class="panel-body">
-
-<?php echo Form::open(array('url' => 'authenticate', 'method' => 'post'));?>
-                                <fieldset>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail" name="email"  type="text" autofocus>
-                                        <?php echo $errors->first('email'); ?>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                        <?php echo $errors->first('password'); ?>
-                                    </div>
-                                    <!--                                    <div class="checkbox">
-                                                                            <label>
-                                                                                <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                                                            </label>
-                                                                        </div>-->
-                                    <input type="submit"  class="btn btn-lg btn-success btn-block" value="Submit">
-                                </fieldset>
+                            @if(Session::has('loginerror'))
+                            <p class="alert {{ Session::get('alert-class', 'alert-warning') }}">{{ Session::get('loginerror') }}</p>
+                            @endif
+                            <?php echo Form::open(array('url' => 'authenticate', 'method' => 'post')); ?>
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email"  type="text" autofocus>
+                                    <?php echo $errors->first('email'); ?>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <?php echo $errors->first('password'); ?>
+                                </div>
+                                <!--                                    <div class="checkbox">
+                                                                        <label>
+                                                                            <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                                                        </label>
+                                                                    </div>-->
+                                <input type="submit"  class="btn btn-lg btn-success btn-block" value="Submit">
+                            </fieldset>
                             </form>
                         </div>
                     </div>
