@@ -14,7 +14,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form role="form" id="addcar_form">
+                       <?php echo Form::open(array('method' => 'post')); ?>
                             <div class="form-group">
                                 <label for="company">Company</label>
                                 <select id="company" name="company" class="form-control">
@@ -29,7 +29,7 @@
                                 <input type="text" name="carname" id="carname" placeholder="Enter car name" class="form-control">
                             </div>
                    
-                            <button form="addcar_form" class="btn btn-primary" type="submit">Submit </button>
+                            <input  name="addcar_submit" class="btn btn-primary" type="submit" value="Submit">
                             <button class="btn btn-danger" type="reset">Reset</button>
                         </form>
                     </div>
