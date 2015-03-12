@@ -19,6 +19,9 @@
                                 <label for="company">Company</label>
                                 <select id="company" name="company" class="form-control">
                                     <option>Select</option>
+                                    @foreach ($companies as $companieskey=>$companiesvalue)
+                                    <option value="{{{$companiesvalue->id}}}">{{{$companiesvalue->name or ''}}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
