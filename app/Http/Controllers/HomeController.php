@@ -56,12 +56,12 @@ class HomeController extends Controller {
                             ]
             );
             if ($validator->fails()) {
-                return redirect('/')->withErrors($validator);
+                return redirect('admin')->withErrors($validator);
             } else {
                 if (Auth::attempt(['email' => $email, 'password' => $password])) {
                     return redirect()->intended('admin/dashboard');
                 } else {
-                    return redirect('/')->with('loginerror', 'User dont exist');
+                    return redirect('admin')->with('loginerror', 'User dont exist');
                     
                 }
             }
@@ -82,7 +82,7 @@ class HomeController extends Controller {
      */
      public function logout() {
         Auth::logout();
-        return redirect('/');
+        return redirect('/admin');
     }
 
 }
