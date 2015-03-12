@@ -23,6 +23,6 @@ class DashboardController extends Controller
      * @return view
      */
      public function viewDashboard() {
-        return view('home.dashboard');
+        return view('dashboard.dashboard');
     }
 }
