@@ -287,7 +287,7 @@
                                         <a href="{{action('DashboardController@viewDashboard')}}">Add new car</a>
                                     </li>
                                     <li>
-                                        <a href="#">List all cars</a>
+                                        <a href="{{action('DashboardController@listCars')}}">List all cars</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

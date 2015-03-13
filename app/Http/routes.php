@@ -16,6 +16,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('authenticate', 'HomeController@authenticate');
     Route::match(['get', 'post'], 'dashboard','DashboardController@viewDashboard' );
     Route::get('logout', 'HomeController@logout');
+    Route::get('listcars','DashboardController@listCars');
 });
 
 

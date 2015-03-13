@@ -17,7 +17,7 @@ class CreateCompanyTable extends Migration {
 			$table->increments('id');
                         $table->integer('seating_capacity',FALSE,TRUE)->length(20);
                         $table->string('name', 100);
-                        $table->enum('is_active', [0,1]);
+                        $table->enum('is_active', [1,0]);
 			$table->timestamps();
 		});
 	}
