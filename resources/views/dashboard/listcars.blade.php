@@ -39,6 +39,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <?php echo isset($cars)?$cars->render():''; ?>
                             </div>
                          
                         </div>

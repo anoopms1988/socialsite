@@ -79,7 +79,7 @@ class DashboardController extends Controller
     public function listCars(Request $request)
     {
         try {
-            $cars = Car::all();
+            $cars = Car::paginate(2);
             return view('dashboard.listcars', compact('cars'));
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
