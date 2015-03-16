@@ -26,15 +26,17 @@
                                         <tr>
                                             <th>Car</th>
                                             <th>Company</th>
-                                            <th>Fuel type</th>
+                                            <th>Car type</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($cars as $carsKey=>$carsValue)
                                         <tr class="odd gradeX">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                        </tr>                             
+                                            <td>{{{$carsValue->name or ''}}}</td>
+                                            <td>{{{$carsValue->company()->first()->name or ''}}}</td>
+                                            <td>{{{$carsValue->carType()->first()->type or ''}}}</td>
+                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

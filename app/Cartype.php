@@ -14,5 +14,13 @@ class Cartype extends Model
      */
     protected $table = 'cartype';
     public $timestamps = false;
-
+    
+    /**
+     * Inverse of each car has a type
+     *
+     */
+    public function car()
+    {
+        return $this->hasMany('App\Car','type_id');
+    }
 }

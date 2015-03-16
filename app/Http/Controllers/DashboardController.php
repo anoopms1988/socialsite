@@ -10,7 +10,7 @@ use App\Company,
     App\Car,
     App\Cartype;
 use Validator;
- use Carbon\Carbon;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -78,7 +78,12 @@ class DashboardController extends Controller
      */
     public function listCars(Request $request)
     {
-        return view('dashboard.listcars');
+        try {
+            $cars = Car::all();
+            return view('dashboard.listcars', compact('cars'));
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
 }

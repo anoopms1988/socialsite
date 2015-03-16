@@ -14,5 +14,15 @@ class Company extends Model
      */
     protected $table = 'companies';
     public $timestamps = false;
+    
+     /**
+     * Inverse of each car has a company
+     *
+     */
+    public function car()
+    {
+        
+        return $this->hasMany('App\Car');
+    }
 
 }

@@ -14,5 +14,23 @@ class Car extends Model
      */
     protected $table = 'cars';
     public $timestamps = false;
+    
+     /**
+     * Each car has a company
+     *
+     */
+    public function company()
+    {
+        return $this->belongsTo('App\Company');
+    }
+    
+     /**
+     * Each car has a type
+     *
+     */
+    public function carType()
+    {
+       return $this->belongsTo('App\Cartype','type_id');
+    }
 
 }
