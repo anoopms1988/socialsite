@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Company,
-    App\Car;
+    App\Car,
+    App\Cartype;
 use Validator;
+ use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -30,20 +32,23 @@ class DashboardController extends Controller
      */
     public function viewDashboard(Request $request)
     {
-
         try {
             $companies = Company::all();
+            $carTypes = Cartype::all();
             $cardetailsSubmit = $request->input('addcar_submit');
             if (isset($cardetailsSubmit) && !empty($cardetailsSubmit)) {
                 $carName = $request->input('carname');
                 $companyId = $request->input('company');
+                $carTypeId = $request->input('cartype');
                 $validator = Validator::make(
                                 [
                             'car' => $carName,
-                            'company' => $companyId
+                            'company' => $companyId,
+                            'cartype' => $carTypeId
                                 ], [
                             'car' => 'required',
-                            'company' => 'required'
+                            'company' => 'required',
+                            'cartype' => 'required'
                                 ]
                 );
                 if ($validator->fails()) {
@@ -52,19 +57,22 @@ class DashboardController extends Controller
                     $Car = new Car;
                     $Car->name = $carName;
                     $Car->company_id = $companyId;
+                    $Car->type_id = $carTypeId;
+                    $Car->created_at = Carbon::now();
+                    $Car->updated_at = Carbon::now();
                     $Car->save();
                     return redirect('admin/dashboard')->with('successmessage', 'Car details successfully inserted');
                 }
             } else {
-                return view('dashboard.dashboard', compact('companies'));
+                return view('dashboard.dashboard', compact('companies', 'carTypes'));
             }
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
-    
+
     /**
-     *Display cars list
+     * Display cars list
      *
      * @return view
      */
@@ -72,4 +80,5 @@ class DashboardController extends Controller
     {
         return view('dashboard.listcars');
     }
+
 }
