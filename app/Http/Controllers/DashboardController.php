@@ -11,6 +11,7 @@ use App\Company,
     App\Cartype;
 use Validator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Config;
 
 class DashboardController extends Controller
 {
@@ -74,12 +75,13 @@ class DashboardController extends Controller
     /**
      * Display cars list
      *
+     * @param Request
      * @return view
      */
     public function listCars(Request $request)
     {
         try {
-            $cars = Car::paginate(2);
+            $cars = Car::paginate(Config::get('constants.paginationCount'));
             return view('dashboard.listcars', compact('cars'));
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();

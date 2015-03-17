@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Car management</h1>
+        <h4 class="page-header">Car management</h4>
     </div>
 </div>
 <div class="row">

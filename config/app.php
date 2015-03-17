@@ -195,6 +195,6 @@ return [
                 'Form'=> 'Illuminate\Html\FormFacade',
                 'HTML'=> 'Illuminate\Html\HtmlFacade'
 
-	],
+	]
 
 ];
