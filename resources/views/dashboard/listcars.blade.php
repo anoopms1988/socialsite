@@ -39,8 +39,9 @@
                                                 <td>
                                                     <button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i>
                                                     </button>
-                                                    <button class="btn btn-warning btn-circle" type="button"><i class="fa fa-times"></i>
+                                                    <button class="deletecar btn btn-warning btn-circle"  id="delete_car_{{$carsValue->id}}" type="button"><i class="fa fa-times"></i>
                                                     </button>
+
                                                 </td>
                                             </tr>
                                             @endforeach
@@ -58,5 +59,29 @@
         </div>
     </div>
 </div>
+@stop
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.deletecar').click(function () {
+            if (confirm("Are you want to delete the car")) {
+                var id = $(this).attr('id');
+                var splitElements = id.split("_");
+                var carId = splitElements[2];
+                $.ajax({
+                    type: "POST",
+                    url:'{{URL::to(trim('  /  '))}}/admin/deletecar',
+                    data: {id:carId,_token: $('meta[name=csrf-token]').attr('content')},
+                    success: function (response) {
+                       if(response.status=="success"){
+                            location.reload();
+                       }
+                    }
+                });
+            }
+        });
+    });
+</script>
 @stop
 

@@ -81,8 +81,30 @@ class DashboardController extends Controller
     public function listCars(Request $request)
     {
         try {
-            $cars = Car::paginate(Config::get('constants.paginationCount'));
+            $cars = Car::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
             return view('dashboard.listcars', compact('cars'));
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+    /**
+     * Delete specific car
+     *
+     * @param Request
+     * @return view
+     */
+    public function deleteSpecificCar(Request $request)
+    {
+        try {
+            $carId = $request->get('id');
+            $car = Car::findOrFail($carId);
+            $car->is_active = 0;
+            if ($car->update()) {
+                return response()->json(['status' => 'success']);
+            } else {
+                return response()->json(['status' => 'failure']);
+            }
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }

@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+         <meta name="csrf-token" content="{{ Session::token() }}"> 
 
         <title>Cardunia</title>
 
@@ -317,12 +318,12 @@
 
         <!-- Morris Charts JavaScript -->
         <script src="/bower_components/raphael/raphael-min.js"></script>
-        <script src="/bower_components/morrisjs/morris.min.js"></script>
-        <script src="/js/morris-data.js"></script>
+       
+        
 
         <!-- Custom Theme JavaScript -->
         <script src="/dist/js/sb-admin-2.js"></script>
-
+         @yield('script')
     </body>
 
 </html>

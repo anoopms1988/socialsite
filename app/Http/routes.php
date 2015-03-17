@@ -14,9 +14,10 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/', 'HomeController@index');
     Route::get('home', 'HomeController@index');
     Route::post('authenticate', 'HomeController@authenticate');
-    Route::match(['get', 'post'], 'dashboard','DashboardController@viewDashboard' );
+    Route::match(['get', 'post'], 'dashboard', 'DashboardController@viewDashboard');
     Route::get('logout', 'HomeController@logout');
-    Route::get('listcars','DashboardController@listCars');
+    Route::get('listcars', 'DashboardController@listCars');
+    Route::post('deletecar','DashboardController@deleteSpecificCar');
 });
 
 
