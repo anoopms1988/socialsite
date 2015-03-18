@@ -41,7 +41,7 @@
                                                 <td>
                                                     <button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i>
                                                     </button>
-                                                    <button class="deletecar btn btn-warning btn-circle"  id="" type="button"><i class="fa fa-times"></i>
+                                                    <button class="deletevariant btn btn-warning btn-circle"  id="delete_variant_{{$VariantValue->id}}" type="button"><i class="fa fa-times"></i>
                                                     </button>
 
                                                 </td>
@@ -67,15 +67,15 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $('.deletecar').click(function () {
-            if (confirm("Are you want to delete the car")) {
+        $('.deletevariant').click(function () {
+            if (confirm("Are you want to delete the variant")) {
                 var id = $(this).attr('id');
                 var splitElements = id.split("_");
-                var carId = splitElements[2];
+                var variantId = splitElements[2];
                 $.ajax({
-                    type: "POST",
-                    url:'{{URL::to(trim('  /  '))}}/admin/deletecar',
-                    data: {id:carId,_token: $('meta[name=csrf-token]').attr('content')},
+                    type: 'DELETE',
+                    url:'{{URL::to(trim('  /  '))}}/admin/variant/'+variantId,
+                    data: {id:variantId,_token: $('meta[name=csrf-token]').attr('content')},
                     success: function (response) {
                        if(response.status=="success"){
                             location.reload();

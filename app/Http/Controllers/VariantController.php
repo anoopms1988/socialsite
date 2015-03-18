@@ -85,9 +85,23 @@ class VariantController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($variantId = null)
     {
-        //
+        try {
+            if ($variantId) {
+                $Variant = Variant::findOrFail($variantId);
+                $Variant->is_active = 0;
+                if ($Variant->update()) {
+                    return response()->json(['status' => 'success']);
+                } else {
+                    return response()->json(['status' => 'failure']);
+                }
+            } else {
+                return response()->json(['status' => 'failure']);
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
 }
