@@ -18,6 +18,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('logout', 'HomeController@logout');
     Route::get('listcars', 'DashboardController@listCars');
     Route::post('deletecar','DashboardController@deleteSpecificCar');
+    Route::post('editcar','DashboardController@editSpecificCar');
+     Route::post('addcar','DashboardController@addCar');
 });
 
 

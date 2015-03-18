@@ -12,6 +12,7 @@ use App\Company,
 use Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
+use App\Http\Requests\CarManipulationRequest;
 
 class DashboardController extends Controller
 {
@@ -36,37 +37,32 @@ class DashboardController extends Controller
         try {
             $companies = Company::all();
             $carTypes = Cartype::all();
-            $cardetailsSubmit = $request->input('addcar_submit');
-            if (isset($cardetailsSubmit) && !empty($cardetailsSubmit)) {
-                $carName = $request->input('carname');
-                $companyId = $request->input('company');
-                $carTypeId = $request->input('cartype');
-                $validator = Validator::make(
-                                [
-                            'car' => $carName,
-                            'company' => $companyId,
-                            'cartype' => $carTypeId
-                                ], [
-                            'car' => 'required',
-                            'company' => 'required',
-                            'cartype' => 'required'
-                                ]
-                );
-                if ($validator->fails()) {
-                    return redirect('admin/dashboard')->withErrors($validator);
-                } else {
-                    $Car = new Car;
-                    $Car->name = $carName;
-                    $Car->company_id = $companyId;
-                    $Car->type_id = $carTypeId;
-                    $Car->created_at = Carbon::now();
-                    $Car->updated_at = Carbon::now();
-                    $Car->save();
-                    return redirect('admin/dashboard')->with('successmessage', 'Car details successfully inserted');
-                }
-            } else {
-                return view('dashboard.dashboard', compact('companies', 'carTypes'));
-            }
+            $Car=new Car;
+            return view('dashboard.dashboard', compact('companies', 'carTypes','Car'));
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+    /**
+     * Add new cars
+     *
+     * @return view
+     */
+    public function addCar(CarManipulationRequest $request)
+    {
+        try {
+            $Car = new Car;
+            $carName = $request->input('carname');
+            $companyId = $request->input('company');
+            $carTypeId = $request->input('cartype');
+            $Car->name=$carName;
+            $Car->company_id = $companyId;
+            $Car->type_id = $carTypeId;
+            $Car->created_at = Carbon::now();
+            $Car->updated_at = Carbon::now();
+            $Car->save();
+            return redirect('admin/dashboard')->with('successmessage', 'Car details successfully inserted');
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
@@ -108,6 +104,17 @@ class DashboardController extends Controller
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
+    }
+
+    /**
+     * Edit specific car
+     *
+     * @param Request
+     * @return view
+     */
+    public function editSpecificCar(CarManipulationRequest $request)
+    {
+        
     }
 
 }
