@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-         <meta name="csrf-token" content="{{ Session::token() }}"> 
+        <meta name="csrf-token" content="{{ Session::token() }}"> 
 
         <title>Cardunia</title>
 
@@ -293,6 +293,18 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Variants management<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">Add new variants</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">List car specific variants</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
@@ -318,12 +330,12 @@
 
         <!-- Morris Charts JavaScript -->
         <script src="/bower_components/raphael/raphael-min.js"></script>
-       
-        
+
+
 
         <!-- Custom Theme JavaScript -->
         <script src="/dist/js/sb-admin-2.js"></script>
-         @yield('script')
+        @yield('script')
     </body>
 
 </html>

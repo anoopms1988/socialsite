@@ -37,8 +37,8 @@ class DashboardController extends Controller
         try {
             $companies = Company::all();
             $carTypes = Cartype::all();
-            $Car=new Car;
-            return view('dashboard.dashboard', compact('companies', 'carTypes','Car'));
+            $Car = new Car;
+            return view('dashboard.dashboard', compact('companies', 'carTypes', 'Car'));
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
@@ -56,7 +56,7 @@ class DashboardController extends Controller
             $carName = $request->input('carname');
             $companyId = $request->input('company');
             $carTypeId = $request->input('cartype');
-            $Car->name=$carName;
+            $Car->name = $carName;
             $Car->company_id = $companyId;
             $Car->type_id = $carTypeId;
             $Car->created_at = Carbon::now();
@@ -112,9 +112,12 @@ class DashboardController extends Controller
      * @param Request
      * @return view
      */
-    public function editSpecificCar(CarManipulationRequest $request)
+    public function showCar(Request $request,$carId=NULL)
     {
-        
+        $companies = Company::all();
+        $carTypes = Cartype::all();
+        $Car = Car::findOrFail($carId);
+        return View('dashboard.editcar',compact('companies', 'carTypes', 'Car'));
     }
 
 }

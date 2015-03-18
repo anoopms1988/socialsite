@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller;
+//use Illuminate\Routing\Controller;
 use Validator,
     Auth,
     Request;
