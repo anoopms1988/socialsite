@@ -32,5 +32,10 @@ class Car extends Model
     {
        return $this->belongsTo('App\Cartype','type_id');
     }
+    
+     public function variant()
+    {
+       return $this->hasMany('App\Variant','car_id');
+    }
 
 }

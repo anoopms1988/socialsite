@@ -300,7 +300,7 @@
                                         <a href="#">Add new variants</a>
                                     </li>
                                     <li>
-                                        <a href="#">List car specific variants</a>
+                                        <a href="{{route('admin.variant.index')}}">List  variants</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
