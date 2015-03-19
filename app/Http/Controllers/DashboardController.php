@@ -119,5 +119,21 @@ class DashboardController extends Controller
         $Car = Car::findOrFail($carId);
         return View('dashboard.editcar',compact('companies', 'carTypes', 'Car'));
     }
+    
+     /**
+     * Get specific company cars
+     *
+     * @param Request
+     * @return view
+     */
+     public function getSpecificCompanyCars(Request $request)
+     {
+         $companyId=$request->get('id');
+         $cars=Car::where('company_id',$companyId)->get();
+         $arrayCars=$cars->toArray() ;
+         if(count($arrayCars)>0){
+             return response()->json($arrayCars);
+         }
+     }
 
 }

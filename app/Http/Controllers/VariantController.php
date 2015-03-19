@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
 use App\Variant;
+use App\Company;
 
 class VariantController extends Controller
 {
@@ -33,7 +34,9 @@ class VariantController extends Controller
      */
     public function create()
     {
-        //
+        $companies =Company::all();
+        $variant =  new Variant();
+        return view('variant.create',compact('companies','variant'));
     }
 
     /**
