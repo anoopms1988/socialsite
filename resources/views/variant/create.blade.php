@@ -10,8 +10,8 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Add new variant
-                @if(Session::has('successmessage'))
-                <p class="alert alert-success">{{ Session::get('successmessage') }}</p>
+                @if(Session::has('message'))
+                <p class="alert alert-success">{{ Session::get('message') }}</p>
                 @endif
             </div>
             <div class="panel-body">
@@ -36,11 +36,11 @@
                 type: "POST",
                 url: '{{URL::to(trim(' / '))}}/admin/specificcars',
                 data: {id: companyId, _token: $('meta[name=csrf-token]').attr('content')},
-                success: function (response) {  
-                    $('#variantContent').empty();
-                   // $('#variantContent').append($('<option>').text(" ").attr('value',''));
+                success: function (response) {
+                    $('#car').empty();
+                    $('#car').append($('<option>').text('Select').attr('value', ''));
                     $.each(response, function (key, value) {
-                       $('#variantContent').append($('<option>').text(value.name).attr('value', value.id));
+                        $('#car').append($('<option>').text(value.name).attr('value', value.id));
                     });
                 }
             });

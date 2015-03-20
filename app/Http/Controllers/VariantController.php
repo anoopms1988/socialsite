@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
 use App\Variant;
 use App\Company;
+use App\Http\Requests\VariantManipulationRequest;
+use Carbon\Carbon;
 
 class VariantController extends Controller
 {
@@ -34,9 +36,13 @@ class VariantController extends Controller
      */
     public function create()
     {
-        $companies =Company::all();
-        $variant =  new Variant();
-        return view('variant.create',compact('companies','variant'));
+        try {
+            $companies = Company::all();
+            $variant = new Variant();
+            return view('variant.create', compact('companies', 'variant'));
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
     /**
@@ -44,9 +50,24 @@ class VariantController extends Controller
      *
      * @return Response
      */
-    public function store()
+    public function store(VariantManipulationRequest $request)
     {
-        //
+        try {
+            $variant = new Variant();
+            $variant->car_id = $request->get('car');
+            $variant->name = $request->get('variant');
+            $variant->type = $request->get('type');
+            $variant->is_active = 1;
+            $variant->created_at = Carbon::now();
+            $variant->updated_at = Carbon::now();
+            if ($variant->save()) {
+                return redirect()->route('admin.variant.create')->with('message', 'Variant successfully added');
+            } else {
+                return redirect()->route('admin.variant.create')->with('message', 'Oops something is wrong');
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
     /**
