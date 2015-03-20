@@ -27,7 +27,7 @@ class VariantManipulationRequest extends Request
         return [
             'company' => 'required',
             'car' => 'required',
-            'variant' => 'required',
+            'name' => 'required',
             'type' => 'required'
         ];
     }

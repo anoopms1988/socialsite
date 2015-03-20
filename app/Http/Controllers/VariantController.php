@@ -55,7 +55,7 @@ class VariantController extends Controller
         try {
             $variant = new Variant();
             $variant->car_id = $request->get('car');
-            $variant->name = $request->get('variant');
+            $variant->name = $request->get('name');
             $variant->type = $request->get('type');
             $variant->is_active = 1;
             $variant->created_at = Carbon::now();
@@ -78,7 +78,12 @@ class VariantController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $variant = Variant::findOrFail($id);
+            return view('variant.show', compact('variant'));
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
     /**
@@ -89,7 +94,9 @@ class VariantController extends Controller
      */
     public function edit($id)
     {
-        //
+        $companies = Company::all();
+        $variant = Variant::findOrFail($id);
+        return view('variant.edit', compact('variant','companies'));
     }
 
     /**
@@ -98,9 +105,24 @@ class VariantController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(VariantManipulationRequest $request,$id)
     {
-        //
+         try {
+            $variant = Variant::findOrFail($id);
+            $variant->car_id = $request->get('car');
+            $variant->name = $request->get('name');
+            $variant->type = $request->get('type');
+            $variant->is_active = 1;
+            $variant->created_at = Carbon::now();
+            $variant->updated_at = Carbon::now();
+            if ($variant->update()) {
+                return redirect()->route('admin.variant.create')->with('message', 'Variant successfully added');
+            } else {
+                return redirect()->route('admin.variant.create')->with('message', 'Oops something is wrong');
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
     /**
