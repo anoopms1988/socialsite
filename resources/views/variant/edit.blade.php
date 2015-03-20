@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Add new variant
+                Edit new variant
                 @if(Session::has('message'))
                 <p class="alert alert-success">{{ Session::get('message') }}</p>
                 @endif
@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         {!! Form::model($variant,['method' => 'PATCH','route' => ['admin.variant.update',$variant->id]]) !!}
-                        @include('partials.variantmanipulation')
+                        @include('partials.variantmanipulation',array("specifiedCompany" =>$specifiedCompany))
                         {!! Form::close() !!}
                     </div>
                 </div>

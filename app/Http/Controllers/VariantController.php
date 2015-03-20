@@ -94,9 +94,16 @@ class VariantController extends Controller
      */
     public function edit($id)
     {
-        $companies = Company::all();
-        $variant = Variant::findOrFail($id);
-        return view('variant.edit', compact('variant','companies'));
+        try {
+            $companies = Company::all();
+            $variant = Variant::findOrFail($id);
+            $specifiedCompany=$variant->car()->first()->company()->first()->id;
+            $specifiedCar=$variant->car()->first()->id;
+            $specifiedCarName=$variant->car()->first()->name;
+            return view('variant.edit', compact('variant','companies','specifiedCompany','specifiedCar','specifiedCarName'));
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
     /**
@@ -105,9 +112,9 @@ class VariantController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(VariantManipulationRequest $request,$id)
+    public function update(VariantManipulationRequest $request, $id)
     {
-         try {
+        try {
             $variant = Variant::findOrFail($id);
             $variant->car_id = $request->get('car');
             $variant->name = $request->get('name');
@@ -116,9 +123,9 @@ class VariantController extends Controller
             $variant->created_at = Carbon::now();
             $variant->updated_at = Carbon::now();
             if ($variant->update()) {
-                return redirect()->route('admin.variant.create')->with('message', 'Variant successfully added');
+                return redirect()->route('admin.variant.index')->with('message', 'Variant successfully updated');
             } else {
-                return redirect()->route('admin.variant.create')->with('message', 'Oops something is wrong');
+                return redirect()->route('admin.variant.index')->with('message', 'Oops something is wrong');
             }
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();

@@ -17,7 +17,8 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        {!! Form::model($variant, ['route' => ['admin.variant.store']]) !!}
+                       
+                        {!! Form::model($variant,['route' => ['admin.variant.store']]) !!}
                         @include('partials.variantmanipulation')
                         {!! Form::close() !!}
                     </div>

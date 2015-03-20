@@ -39,7 +39,7 @@
                                                 <td>{{{$VariantValue->car()->first()->company()->first()->name or ''}}}</td>
                                                 <td>{{{$VariantValue->type or ''}}}</td>
                                                 <td>
-                                                    <button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i>
+                                                    <button class="editvariant btn btn-primary btn-circle" id="editvariant_{{$VariantValue->id}}" type="button"><i class="fa fa-list"></i>
                                                     </button>
                                                     <button class="deletevariant btn btn-warning btn-circle"  id="delete_variant_{{$VariantValue->id}}" type="button"><i class="fa fa-times"></i>
                                                     </button>
@@ -89,6 +89,12 @@
             var splitElements = id.split("_");
             var variantId = splitElements[1];
             window.location.href = "{{URL::to(trim(' / '))}}/admin/variant/" + variantId;
+        });
+         $('.editvariant').click(function () {
+            var id = $(this).attr('id');
+            var splitElements = id.split("_");
+            var variantId = splitElements[1];
+            window.location.href = "{{URL::to(trim(' / '))}}/admin/variant/" + variantId+"/edit";
         });
     });
 </script>
