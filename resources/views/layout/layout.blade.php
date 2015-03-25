@@ -305,6 +305,15 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reviews management<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{action('ReviewController@listReviews')}}">List reviews</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->

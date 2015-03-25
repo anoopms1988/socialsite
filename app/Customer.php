@@ -4,26 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Variant extends Model {
+class Customer extends Model {
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'variants';
+    protected $table = 'customers';
     public $timestamps = false;
 
     /**
-     * Each car has a company
-     *
-     */
-    public function car() {
-        return $this->belongsTo('App\Car', 'car_id');
-    }
-
-    /**
-     * Each variant has many reviews
+     *Each customer has more than one review
      *
      */
     public function review() {
