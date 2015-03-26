@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('addcar','DashboardController@addCar');
     Route::resource('variant', 'VariantController');
     Route::post('specificcars','DashboardController@getSpecificCompanyCars');
+    Route::get('reviews','ReviewController@listReviews');
 });
 
 
