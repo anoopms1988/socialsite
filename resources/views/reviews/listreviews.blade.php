@@ -37,14 +37,17 @@
                                                 <td>{{{str_limit($reviewsValue->reviews, $limit = 100, $end = '...') or ''}}}</td>
                                                 <td>{{{$reviewsValue->customer()->first()->first_name or ''}}}&nbsp;{{{$reviewsValue->customer()->first()->last_name or ''}}}</td>                                                
                                                 <td>
-                                                    <button  class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i>
-                                                    </button>
+                                                    @if($reviewsValue->is_approved==0)
+                                                    <button  class="approval btn btn-success btn-circle" id="approve_{{$reviewsValue->id}}" type="button"></button>
+                                                    @else
+                                                    <button  class="approval btn btn-danger btn-circle" id="reject_{{$reviewsValue->id}}" type="button"></button>
+                                                    @endif           
                                                     <button  class="deletecar btn btn-warning btn-circle" type="button"><i class="fa fa-times"></i>
                                                     </button>
                                                 </td>
                                             </tr>
                                             @endforeach
-                                          
+
 
                                         </tbody>
                                     </table>
@@ -60,4 +63,35 @@
         </div>
     </div>
 </div>
+@stop
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.approval').click(function () {
+            var id = $(this).attr('id');
+            var splitElements = id.split("_");
+            var reviewId = splitElements[1];
+            var type     =splitElements[0];
+            if (type == 'approve') {
+                var confirm_msg = "Do you want to approve this reivew?";
+                var typeId=1;
+            } else {
+                var confirm_msg = "Do you want to reject this reivew?";
+                var typeId=0;
+            }
+            if confirm(confirm_msg) {
+                $.ajax({
+                    type: "POST",
+                    url: '{{URL::to(trim(' / '))}}/admin/reviewapproval',
+                    data: {id: reviewId,type:typeId, _token: $('meta[name=csrf-token]').attr('content')},
+                    success: function (response) {
+                        if (response.status == "success") {
+                            location.reload();
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
 @stop

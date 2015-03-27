@@ -17,12 +17,13 @@ Route::group(['prefix' => 'admin'], function() {
     Route::match(['get', 'post'], 'dashboard', 'DashboardController@viewDashboard');
     Route::get('logout', 'HomeController@logout');
     Route::get('listcars', 'DashboardController@listCars');
-    Route::post('deletecar','DashboardController@deleteSpecificCar');
-    Route::get('showcar/{id}','DashboardController@showCar');
-    Route::post('addcar','DashboardController@addCar');
+    Route::post('deletecar', 'DashboardController@deleteSpecificCar');
+    Route::get('showcar/{id}', 'DashboardController@showCar');
+    Route::post('addcar', 'DashboardController@addCar');
     Route::resource('variant', 'VariantController');
-    Route::post('specificcars','DashboardController@getSpecificCompanyCars');
-    Route::get('reviews','ReviewController@listReviews');
+    Route::post('specificcars', 'DashboardController@getSpecificCompanyCars');
+    Route::get('reviews', 'ReviewController@listReviews');
+    Route::post('reviewapproval', 'ReviewController@reviewApproval');
 });
 
 
