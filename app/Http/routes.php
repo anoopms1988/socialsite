@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('specificcars', 'DashboardController@getSpecificCompanyCars');
     Route::get('reviews', 'ReviewController@listReviews');
     Route::post('reviewapproval', 'ReviewController@reviewApproval');
+    Route::post('deletereview', 'ReviewController@deleteReview');
 });
 
 

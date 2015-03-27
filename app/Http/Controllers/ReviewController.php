@@ -25,8 +25,12 @@ class ReviewController extends Controller {
      * @return void
      */
     public function listReviews($param = null) {
-        $reviews = Review::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
-        return view('reviews.listreviews', compact('reviews'));
+        try {
+            $reviews = Review::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
+            return view('reviews.listreviews', compact('reviews'));
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
     /**
@@ -35,20 +39,43 @@ class ReviewController extends Controller {
      * @return view
      */
     public function reviewApproval(Request $request) {
-        $reviewId=$request->get('id');
-        $reviewType=$request->get('type');
-        $review=  Review::findOrFail($reviewId);
-        if($reviewType==1){
-            $review->is_approved=1;
-        }else{
-             $review->is_approved=0;
-        }
-        if($review->update()){
-             return response()->json(['status' => 'success']);
-        }else{
-             return response()->json(['status' => 'failure']);
+        try {
+            $reviewId = $request->get('id');
+            $reviewType = $request->get('type');
+            $review = Review::findOrFail($reviewId);
+            if ($reviewType == 1) {
+                $review->is_approved = 1;
+            } else {
+                $review->is_approved = 0;
+            }
+            if ($review->update()) {
+                return response()->json(['status' => 'success']);
+            } else {
+                return response()->json(['status' => 'failure']);
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
         }
     }
-    
-    
+
+    /**
+     * delete Review
+     *
+     * @return view
+     */
+    public function deleteReview(Request $request) {
+        try {
+            $reviewId = $request->get('id');
+            $review = Review::findOrFail($reviewId);
+            $review->is_active = 0;
+            if ($review->update()) {
+                return response()->json(['status' => 'success']);
+            } else {
+                return response()->json(['status' => 'failure']);
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
 }
