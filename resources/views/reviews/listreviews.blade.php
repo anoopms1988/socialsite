@@ -34,7 +34,7 @@
                                             @foreach($reviews as $reviewsKey=>$reviewsValue)
                                             <tr>
                                                 <td>{{{$reviewsValue->variant()->first()->name or ''}}}</td>
-                                                <td>{{{str_limit($reviewsValue->reviews, $limit = 100, $end = '...') or ''}}}</td>
+                                                <td>{{{$reviewsValue->reviews or ''}}}</td>
                                                 <td>{{{$reviewsValue->customer()->first()->first_name or ''}}}&nbsp;{{{$reviewsValue->customer()->first()->last_name or ''}}}</td>                                                
                                                 <td>
                                                     @if($reviewsValue->is_approved==0)
