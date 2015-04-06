@@ -24,5 +24,14 @@ class Company extends Model
         
         return $this->hasMany('App\Car');
     }
+    
+     /**
+     * Each company has a assistance details
+     *
+     */
+    public function assistance()
+    {     
+        return $this->hasOne('App\Assistance');
+    }
 
 }

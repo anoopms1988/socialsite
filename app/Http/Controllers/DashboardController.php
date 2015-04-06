@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
@@ -14,16 +13,14 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
 use App\Http\Requests\CarManipulationRequest;
 
-class DashboardController extends Controller
-{
+class DashboardController extends Controller {
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
@@ -32,8 +29,7 @@ class DashboardController extends Controller
      *
      * @return view
      */
-    public function viewDashboard(Request $request)
-    {
+    public function viewDashboard(Request $request) {
         try {
             $companies = Company::all();
             $carTypes = Cartype::all();
@@ -49,8 +45,7 @@ class DashboardController extends Controller
      *
      * @return view
      */
-    public function addCar(CarManipulationRequest $request)
-    {
+    public function addCar(CarManipulationRequest $request) {
         try {
             $Car = new Car;
             $carName = $request->input('carname');
@@ -74,8 +69,7 @@ class DashboardController extends Controller
      * @param Request
      * @return view
      */
-    public function listCars(Request $request)
-    {
+    public function listCars(Request $request) {
         try {
             $cars = Car::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
             return view('dashboard.listcars', compact('cars'));
@@ -90,8 +84,7 @@ class DashboardController extends Controller
      * @param Request
      * @return view
      */
-    public function deleteSpecificCar(Request $request)
-    {
+    public function deleteSpecificCar(Request $request) {
         try {
             $carId = $request->get('id');
             $car = Car::findOrFail($carId);
@@ -112,28 +105,26 @@ class DashboardController extends Controller
      * @param Request
      * @return view
      */
-    public function showCar(Request $request,$carId=NULL)
-    {
+    public function showCar(Request $request, $carId = NULL) {
         $companies = Company::all();
         $carTypes = Cartype::all();
         $Car = Car::findOrFail($carId);
-        return View('dashboard.editcar',compact('companies', 'carTypes', 'Car'));
+        return View('dashboard.editcar', compact('companies', 'carTypes', 'Car'));
     }
-    
-     /**
+
+    /**
      * Get specific company cars
      *
      * @param Request
      * @return view
      */
-     public function getSpecificCompanyCars(Request $request)
-     {
-         $companyId=$request->get('id');
-         $cars=Car::where('company_id',$companyId)->get();
-         $arrayCars=$cars->toArray() ;
-         if(count($arrayCars)>0){
-             return response()->json($arrayCars);
-         }
-     }
+    public function getSpecificCompanyCars(Request $request) {
+        $companyId = $request->get('id');
+        $cars = Car::where('company_id', $companyId)->get();
+        $arrayCars = $cars->toArray();
+        if (count($arrayCars) > 0) {
+            return response()->json($arrayCars);
+        }
+    }
 
 }
