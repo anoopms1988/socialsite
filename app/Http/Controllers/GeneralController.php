@@ -23,7 +23,7 @@ class GeneralController extends Controller {
      * @return void
      */
     public function listAssistanceDetails($param=null) {
-        $assistanceDetails = Assistance::paginate(Config::get('constants.paginationCount'));
+        $assistanceDetails = Assistance::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
         return view('general.listassistancedetails',compact('assistanceDetails'));
     }
 }

@@ -10,13 +10,35 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Roadside assistance details  
+                <button class="btn btn-primary btn-sm" data-toggle="modal" style="float: right; " data-target="#add_roadside_details">
+                    Add details
+                </button>
+                <div class="modal fade" id="add_roadside_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title" id="myModalLabel">Add roadside details</h4>
+                            </div>
+                            <div class="modal-body">
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                
+
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -48,7 +70,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                    <?php //echo isset($cars) ? $cars->render() : ''; ?>
+                                    <?php echo isset($assistanceDetails) ? $assistanceDetails->render() : ''; ?>
                                 </div>
 
                             </div>
