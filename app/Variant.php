@@ -29,5 +29,13 @@ class Variant extends Model {
     public function review() {
         return $this->hasMany('App\Review');
     }
+    
+    /**
+     * Each variant has one type engine
+     *
+     */
+     public function engine() {
+        return $this->hasOne('App\Engine');
+    }
 
 }

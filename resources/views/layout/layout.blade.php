@@ -305,12 +305,26 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
+              
                             <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reviews management<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> General management<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="{{action('ReviewController@listReviews')}}">List reviews</a>
                                     </li>
+                                    <li>
+                                        <a href="{{action('GeneralController@listAssistanceDetails')}}">Road side assistance</a>
+                                    </li>
+                                     <li>
+                                        <a href="#">Loan</a>
+                                    </li>
+                                     <li>
+                                        <a href="#">Insurance</a>
+                                    </li>
+                                      <li>
+                                        <a href="#">Dealers</a>
+                                    </li>
+                                    
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
