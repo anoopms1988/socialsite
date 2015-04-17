@@ -108,7 +108,211 @@
             <!-- .panel-body -->
         </div>
     </div>
-
+ <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Price Details
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Price Details
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Showroom price</th>
+                                            <th>Onroad price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>{{{ $variant->price()->first()->showroomprice or ''}}}</td>
+                                            <td>{{{ $variant->price()->first()->onroadprice or ''}}}</td>
+                                        </tr>
+                              
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                <!-- Button trigger modal -->
+                <button data-target="#fuel_efficiency" data-toggle="modal" class="btn btn-primary btn-lg">
+                    Edit
+                </button>
+                <!-- Modal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="fuel_efficiency" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                <h4 id="myModalLabel" class="modal-title">Edit Fuel efficiency details</h4>
+                            </div>
+                            <div class="modal-body">
+                               
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                <button class="btn btn-primary" type="button">Save changes</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </div>
+            <!-- .panel-body -->
+        </div>
+    </div>
+<div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Engine Details
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Engine Details
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Torque</th>
+                                            <th>Displacement</th>
+                                            <th>Power</th>
+                                            <th>Cyclinders</th>
+                                            <th>Valves per cylinder</th>
+                                            <th>Valve mechanism</th>
+                                            <th>Cylinder configuration</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>{{{$variant->engine()->first()->torque or ''}}}</td>
+                                            <td>{{{$variant->engine()->first()->displacement or ''}}}</td>
+                                            <td>{{{$variant->engine()->first()->power or ''}}}</td>
+                                            <td>{{{$variant->engine()->first()->cylinders or ''}}}</td>
+                                            <td>{{{$variant->engine()->first()->valvespercylinder or ''}}}</td>
+                                            <td>{{{$variant->engine()->first()->valvemechanism or ''}}}</td>
+                                            <td>{{{$variant->engine()->first()->cyclinderconfiguration or ''}}}</td>
+                                        </tr>
+                              
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                <!-- Button trigger modal -->
+                <button data-target="#fuel_efficiency" data-toggle="modal" class="btn btn-primary btn-lg">
+                    Edit
+                </button>
+                <!-- Modal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="fuel_efficiency" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                <h4 id="myModalLabel" class="modal-title">Edit Fuel efficiency details</h4>
+                            </div>
+                            <div class="modal-body">
+                               
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                <button class="btn btn-primary" type="button">Save changes</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </div>
+            <!-- .panel-body -->
+        </div>
+    </div>
+     <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Steering Details
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Steering Details
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Turning radius</th>
+                                            <th>Steering type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>{{{$variant->steering()->first()->turning_radius or ''}}}</td>
+                                            <td>{{{$variant->steering()->first()->steering_type or ''}}}</td>
+                                        </tr>
+                              
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                <!-- Button trigger modal -->
+                <button data-target="#fuel_efficiency" data-toggle="modal" class="btn btn-primary btn-lg">
+                    Edit
+                </button>
+                <!-- Modal -->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="fuel_efficiency" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                <h4 id="myModalLabel" class="modal-title">Edit Fuel efficiency details</h4>
+                            </div>
+                            <div class="modal-body">
+                               
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                <button class="btn btn-primary" type="button">Save changes</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </div>
+            <!-- .panel-body -->
+        </div>
+    </div>
 </div>
 
 @stop

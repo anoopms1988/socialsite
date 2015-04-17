@@ -45,4 +45,20 @@ class Variant extends Model
     public function fuel() {
         return $this->hasOne('App\FuelEfficiency');
     }
+
+      /**
+     * Each variant has fuel price details
+     *
+     */
+    public function price() {
+        return $this->hasOne('App\Price');
+    }
+
+     /**
+     * Each variant has steering mechanism details
+     *
+     */
+    public function steering() {
+        return $this->hasOne('App\Steering');
+    }
 }
