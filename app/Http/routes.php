@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('reviewapproval', 'ReviewController@reviewApproval');
     Route::post('deletereview', 'ReviewController@deleteReview');
     Route::get('assistance', 'GeneralController@listAssistanceDetails');
+    Route::post('addassistance', 'GeneralController@addAssistanceDetails');
 });
  Route::get('/', 'site\HomeController@index');
 

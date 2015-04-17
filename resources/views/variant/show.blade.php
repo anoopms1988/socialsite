@@ -44,24 +44,55 @@
   <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Modals
+                Fuel Efficiency
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Fuel Efficiency details
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Mileage highway</th>
+                                            <th>Mileage city</th>
+                                            <th>Mileage overall</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>{{{ $variant->fuel()->first()->mileage_highway or ''}}}</td>
+                                            <td>{{{ $variant->fuel()->first()->mileage_city or ''}}}</td>
+                                            <td>{{{ $variant->fuel()->first()->mileage_overall or ''}}}</td>
+                                        </tr>
+                              
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
                 <!-- Button trigger modal -->
-                <button data-target="#myModal" data-toggle="modal" class="btn btn-primary btn-lg">
-                    Launch Demo Modal
+                <button data-target="#fuel_efficiency" data-toggle="modal" class="btn btn-primary btn-lg">
+                    Edit
                 </button>
                 <!-- Modal -->
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="fuel_efficiency" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                <h4 id="myModalLabel" class="modal-title">Modal title</h4>
+                                <h4 id="myModalLabel" class="modal-title">Edit Fuel efficiency details</h4>
                             </div>
                             <div class="modal-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                               
                             </div>
                             <div class="modal-footer">
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>

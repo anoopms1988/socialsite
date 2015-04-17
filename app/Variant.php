@@ -1,11 +1,11 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Variant extends Model {
-
+class Variant extends Model
+{
+    
     /**
      * The database table used by the model.
      *
@@ -13,7 +13,7 @@ class Variant extends Model {
      */
     protected $table = 'variants';
     public $timestamps = false;
-
+    
     /**
      * Each car has a company
      *
@@ -21,7 +21,7 @@ class Variant extends Model {
     public function car() {
         return $this->belongsTo('App\Car', 'car_id');
     }
-
+    
     /**
      * Each variant has many reviews
      *
@@ -34,8 +34,15 @@ class Variant extends Model {
      * Each variant has one type engine
      *
      */
-     public function engine() {
+    public function engine() {
         return $this->hasOne('App\Engine');
     }
-
+    
+    /**
+     * Each variant has fuel efficiency details
+     *
+     */
+    public function fuel() {
+        return $this->hasOne('App\FuelEfficiency');
+    }
 }

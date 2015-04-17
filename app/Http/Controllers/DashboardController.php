@@ -11,6 +11,7 @@ use App\Company,
 use Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Config;
+
 use App\Http\Requests\CarManipulationRequest;
 
 class DashboardController extends Controller {

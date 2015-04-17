@@ -52,7 +52,8 @@
                                     </table>
 
                                 </div>
-                                <?php echo isset($Variant) ? $Variant->render() : ''; ?>
+                                <?php
+echo isset($Variant) ? $Variant->render() : ''; ?>
                             </div>
                             <!-- /.panel-body -->
                         </div>
