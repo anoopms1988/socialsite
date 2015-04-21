@@ -3,7 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Wheel extends Model
 {
     
     /**
@@ -11,14 +11,15 @@ class Customer extends Model
      *
      * @var string
      */
-    protected $table = 'customers';
+    protected $table = 'wheel_tyres';
     public $timestamps = false;
     
-    /**
-     *Each customer has more than one review
+     /**
+     * Each wheel type belongs to a variant
      *
      */
-    public function review() {
-        return $this->hasMany('App\Review');
+    public function variant() {
+        return $this->belongsTo('App\Variant');
     }
+    
 }

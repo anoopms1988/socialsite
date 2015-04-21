@@ -3,7 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Capacity extends Model
 {
     
     /**
@@ -11,14 +11,14 @@ class Customer extends Model
      *
      * @var string
      */
-    protected $table = 'customers';
+    protected $table = 'capacity';
     public $timestamps = false;
-    
+
     /**
-     *Each customer has more than one review
+     * Each capcity type belongs to a variant
      *
      */
-    public function review() {
-        return $this->hasMany('App\Review');
+    public function variant() {
+        return $this->belongsTo('App\Variant');
     }
 }
