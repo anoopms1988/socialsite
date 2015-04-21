@@ -20,17 +20,27 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 <h4 class="modal-title" id="myModalLabel">Add roadside details</h4>
                             </div>
+                            {!! Form::open(array('id'=>'assistance_details_form')) !!}
                             <div class="modal-body">
-                                {!! Form::open(array('url' => 'foo/bar')) !!}
                                 <?php
-                                echo Form::select('company',$company );
+                                echo Form::label('company', 'Company');
+                                echo Form::select('company', array_merge(array('' => 'Select'), $company), null, array('class' => 'form-control'));
+                               // echo $errors->first('company'); 
+                                echo '<br>';
+                                echo Form::label('contact_number', 'Contact Number');
+                                echo Form::text('contact_number', null, array('class' => 'form-control'));
+                               // echo $errors->first('contact_number'); 
+                                echo '<br>';
+                                echo Form::label('contact_address', 'Contact Address');
+                                echo Form::textarea('contact_address', null, array('class' => 'form-control'));
+                                //echo $errors->first('contact_address'); 
                                 ?>
-                                {!! Form::close() !!}
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button" id="add_assistance_details" class="btn btn-primary" >Save</button>
                             </div>
+                            {!! Form::close() !!}
                         </div>
                         <!-- /.modal-content -->
                     </div>
@@ -91,23 +101,19 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-//        $('.deletecar').click(function () {
-//            if (confirm("Are you want to delete the car")) {
-//                var id = $(this).attr('id');
-//                var splitElements = id.split("_");
-//                var carId = splitElements[2];
-//                $.ajax({
-//                    type: "POST",
-//                    url:'{{URL::to(trim('  /  '))}}/admin/deletecar',
-//                    data: {id:carId,_token: $('meta[name=csrf-token]').attr('content')},
-//                    success: function (response) {
-//                       if(response.status=="success"){
-//                            location.reload();
-//                       }
-//                    }
-//                });
-//            }
-//        });
+        $('#add_assistance_details').click(function () {
+                $.ajax({
+                    type: "POST",
+                    url:'{{URL::to(trim('  /  '))}}/admin/addassistance',
+                    data: {data:$("#assistance_details_form").serialize(),_token: $('meta[name=csrf-token]').attr('content')},
+                    success: function (response) {
+                       if(response.status=="success"){
+                            location.reload();
+                       }
+                    }
+                });
+        
+        });
     });
 </script>
 @stop

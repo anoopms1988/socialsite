@@ -3,8 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-class Cartype extends Model
+class Capacity extends Model
 {
     
     /**
@@ -12,15 +11,14 @@ class Cartype extends Model
      *
      * @var string
      */
-    protected $table = 'cartype';
+    protected $table = 'capacity';
     public $timestamps = false;
-    
 
     /**
-     * Inverse of each car has a type
+     * Each capcity type belongs to a variant
      *
      */
-    public function car() {
-        return $this->hasMany('App\Car', 'type_id');
+    public function variant() {
+        return $this->belongsTo('App\Variant');
     }
 }

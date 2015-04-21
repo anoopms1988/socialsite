@@ -1,4 +1,5 @@
-<?php namespace App\Http\Controllers;
+<?php
+namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -7,8 +8,14 @@ use Illuminate\Support\Facades\Config;
 use App\Assistance;
 use App\Company;
 
-class GeneralController extends Controller {
 
+//use Illuminate\Support\Facades\Session;
+
+use App\Http\Requests\AssistanceRequest;
+
+class GeneralController extends Controller
+{
+    
     /**
      * Create a new controller instance.
      *
@@ -17,15 +24,26 @@ class GeneralController extends Controller {
     public function __construct() {
         $this->middleware('auth');
     }
-
+    
     /**
      * List roadside assistance details
      *
      * @return void
      */
-    public function listAssistanceDetails($param=null) {
-        $company=Company::lists('name', 'id');
+    public function listAssistanceDetails($param = null) {
+        $company = Company::lists('name', 'id');
         $assistanceDetails = Assistance::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
-        return view('general.listassistancedetails',compact('assistanceDetails','company'));
+        return view('general.listassistancedetails', compact('assistanceDetails', 'company'));
+    }
+    
+    /**
+     * Add roadside assistance details
+     *
+     * @return void
+     */
+    public function addAssistanceDetails(Request $request) {
+        echo "test";
+        exit;
+        dd($request->all());
     }
 }

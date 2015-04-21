@@ -1,11 +1,11 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model {
-
+class Customer extends Model
+{
+    
     /**
      * The database table used by the model.
      *
@@ -13,7 +13,7 @@ class Customer extends Model {
      */
     protected $table = 'customers';
     public $timestamps = false;
-
+    
     /**
      *Each customer has more than one review
      *
@@ -21,5 +21,4 @@ class Customer extends Model {
     public function review() {
         return $this->hasMany('App\Review');
     }
-
 }
