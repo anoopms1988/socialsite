@@ -36,6 +36,67 @@
                         <br>
                     </div>
                     <div id="features" class="tab-pane fade">
+                        <div class="panel panel-default">
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#safetyfeatures" aria-expanded="true">Safety Features</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="#interiorfeatures" aria-expanded="false">Interior Features</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="#exteriorfeatures" aria-expanded="false">Exterior Features</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div id="safetyfeatures" class="tab-pane fade active in">
+                                    <h4>Safety Features</h4>
+                                    <p>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">                                          
+                                            <label>ABS</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="abs" @if($safetyFeatures->abs == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0" name="abs" @if($safetyFeatures->abs == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Airbags</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="airbags" @if($safetyFeatures->airbags == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="airbags" @if($safetyFeatures->airbags == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Immobilizer</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="immobilizer" @if($safetyFeatures->immobilizer == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="immobilizer" @if($safetyFeatures->immobilizer == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                    </div>
+                                    </p>
+                                </div>
+                                <div id="interiorfeatures" class="tab-pane fade">
+                                    <h4>Interior Features</h4>
+                                    <p></p>
+                                </div>
+                                <div id="exteriorfeatures" class="tab-pane fade ">
+                                    <h4>Exterior Features</h4>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
                     </div
                     <div id="image" class="tab-pane fade">
                     </div
