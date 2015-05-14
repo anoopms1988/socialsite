@@ -18,6 +18,8 @@
 
                     <li class="active"><a data-toggle="tab" href="#variant_details" aria-expanded="true">Details</a>
                     </li>
+                    <li class=""><a data-toggle="tab" href="#features" aria-expanded="false">Features</a>
+                    </li>
                     <li class=""><a data-toggle="tab" href="#image" aria-expanded="false">Image</a>
                     </li>    
                 </ul>
@@ -33,6 +35,8 @@
                         <b>variant:</b>{{{$variant->name or ''}}}
                         <br>
                     </div>
+                    <div id="features" class="tab-pane fade">
+                    </div
                     <div id="image" class="tab-pane fade">
                     </div
                 </div>

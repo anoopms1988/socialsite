@@ -9,6 +9,7 @@ use App\Variant;
 use App\Company;
 use App\Http\Requests\VariantManipulationRequest;
 use Carbon\Carbon;
+use App\SafetyFeatures;
 
 class VariantController extends Controller
 {
@@ -79,7 +80,8 @@ class VariantController extends Controller
     {
         try {
             $variant = Variant::findOrFail($id);
-            return view('variant.show', compact('variant'));
+            $safetyFeatures  =SafetyFeatures::findOrFail($id);
+            return view('variant.show', compact('variant','safetyFeatures'));
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
