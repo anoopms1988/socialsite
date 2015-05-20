@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Altercars extends Migration {
+class Altersafetyfeatures extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class Altercars extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('cars', function(Blueprint $table)
+		Schema::table('safety_features', function(Blueprint $table)
 		{
-           // $table->integer('company_id');
-            //$table->integer('type_id');
+			$table->dropColumn('4wd');
+			$table->enum('wheeldrive(4/4)', [0, 1])->default(0);
 		});
 	}
 
@@ -26,7 +26,7 @@ class Altercars extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('cars', function(Blueprint $table)
+		Schema::table('safety_features', function(Blueprint $table)
 		{
 			//
 		});

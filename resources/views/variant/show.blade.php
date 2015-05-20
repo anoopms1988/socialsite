@@ -82,12 +82,217 @@
                                                 <input type="radio" value="0"   name="immobilizer" @if($safetyFeatures->immobilizer == 0) checked="true" @endif>No
                                             </label>
                                         </div>
+                                        <div class="form-group">
+                                            <label>Hill Control</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="hillcontrol" @if($safetyFeatures->hill_control == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="hillcontrol" @if($safetyFeatures->hill_control == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>EBD</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="ebd" @if($safetyFeatures->ebd == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="ebd" @if($safetyFeatures->ebd == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Central Locking</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="central_locking" @if($safetyFeatures->central_locking == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="central_locking" @if($safetyFeatures->central_locking == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Child Safety Lock</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="child_safety_lock" @if($safetyFeatures->child_safety_lock == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="child_safety_lock" @if($safetyFeatures->child_safety_lock == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Traction Control</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="traction_control" @if($safetyFeatures->traction_control == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="traction_control" @if($safetyFeatures->traction_control == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hill Descent</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="hill_descent" @if($safetyFeatures->hill_descent == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="hill_descent" @if($safetyFeatures->hill_descent == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Esp</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="esp" @if($safetyFeatures->esp == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="esp" @if($safetyFeatures->esp == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                         <div class="form-group">
+                                            <label>4wd</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="wheeldrive" @if($safetyFeatures->wheeldrive == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="wheeldrive" @if($safetyFeatures->wheeldrive == 0) checked="true" @endif>No
+                                            </label>
+                                        </div> 
                                     </div>
                                     </p>
                                 </div>
                                 <div id="interiorfeatures" class="tab-pane fade">
                                     <h4>Interior Features</h4>
-                                    <p></p>
+                                    <p>
+                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Powersteering</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="power_steering" @if($interiorFeatures->power_steering == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="power_steering" @if($interiorFeatures->power_steering == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Powerwindows</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="power_windows" @if($interiorFeatures->power_windows == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="power_windows" @if($interiorFeatures->power_windows == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Anti Pinch</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="anti_pinch" @if($interiorFeatures->anti_pinch == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="anti_pinch" @if($interiorFeatures->anti_pinch == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Air conditioner</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="air_con" @if($interiorFeatures->air_con == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="air_con" @if($interiorFeatures->air_con == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Audio System</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="audio_system" @if($interiorFeatures->audio_system == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="audio_system" @if($interiorFeatures->audio_system == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Electric mirrors</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="electric_mirrors" @if($interiorFeatures->electric_mirrors == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="electric_mirrors" @if($interiorFeatures->electric_mirrors == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Deffoger</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="deffoger" @if($interiorFeatures->deffoger == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="deffoger" @if($interiorFeatures->deffoger == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Leather seats</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="leather_seats" @if($interiorFeatures->leather_seats == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="leather_seats" @if($interiorFeatures->leather_seats == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Reversing camera</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="reversing_camera" @if($interiorFeatures->reversing_camera == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="reversing_camera" @if($interiorFeatures->reversing_camera == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Bluetooth_connectivity</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="bluetooth_connectivity" @if($interiorFeatures->bluetooth_connectivity == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="bluetooth_connectivity" @if($interiorFeatures->bluetooth_connectivity == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Bluetooth_connectivity</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="bluetooth_connectivity" @if($interiorFeatures->bluetooth_connectivity == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="bluetooth_connectivity" @if($interiorFeatures->bluetooth_connectivity == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Cruise control</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="cruise_control" @if($interiorFeatures->cruise_control == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="cruise_control" @if($interiorFeatures->cruise_control == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Remote boot release</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="remote_boot_release" @if($interiorFeatures->remote_boot_release == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="remote_boot_release" @if($interiorFeatures->remote_boot_release == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Chilled glovebox</label>
+                                            <label class="radio-inline">
+                                                <input type="radio"  value="1"  name="chilled_glovebox" @if($interiorFeatures->chilled_glovebox == 1) checked="true" @endif>Yes
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0"   name="chilled_glovebox" @if($interiorFeatures->chilled_glovebox == 0) checked="true" @endif>No
+                                            </label>
+                                        </div>
+                                    </div>
+                                    </div>                                     
+                                    </p>
                                 </div>
                                 <div id="exteriorfeatures" class="tab-pane fade ">
                                     <h4>Exterior Features</h4>
