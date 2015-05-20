@@ -21,6 +21,6 @@ class CarManipulationRequest extends Request
      * @return array
      */
     public function rules() {
-        return ['company' => 'required', 'contact_number' => 'required', 'contact_address' => 'required'];
+        return ['company' => 'required', 'carname' => 'required', 'cartype' => 'required'];
     }
 }
