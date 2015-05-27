@@ -11,6 +11,7 @@ use App\Http\Requests\VariantManipulationRequest;
 use Carbon\Carbon;
 use App\SafetyFeatures;
 use App\InteriorFeatures;
+use App\ExteriorFeatures;
 
 class VariantController extends Controller
 {
@@ -83,7 +84,8 @@ class VariantController extends Controller
             $variant = Variant::findOrFail($id);
             $safetyFeatures = SafetyFeatures::findOrFail($id);
             $interiorFeatures = InteriorFeatures::findOrFail($id);
-            return view('variant.show', compact('variant', 'safetyFeatures', 'interiorFeatures'));
+            $exteriorFeatures = ExteriorFeatures::findOrFail($id);
+            return view('variant.show', compact('variant', 'safetyFeatures', 'interiorFeatures', 'exteriorFeatures'));
         }
         catch(Exception $exc) {
             echo $exc->getTraceAsString();
@@ -162,5 +164,20 @@ class VariantController extends Controller
         catch(Exception $exc) {
             echo $exc->getTraceAsString();
         }
+    }
+    
+    /**
+     * Update the various features of cars(Safety,Internal and External features)
+     *
+     * @param  int  $featureType,array $featuresList
+     * @return Response
+     */
+    public function updateFeatures(Request $request) {
+        try {
+            dd($request->all());
+        } catch (Exception $e) {
+            
+        }
+        
     }
 }
