@@ -54,6 +54,7 @@
                                 <div id="safetyfeatures" class="tab-pane fade active in">
                                 {!!Form::open(array('action' => 'VariantController@updateFeatures')) !!}
                                     <input type="hidden" name="featureType" value='1'>
+                                    <input type="hidden" name="variantId" value={{{ $variant->id or '' }}}>
                                     <h4>Safety Features</h4>
                                     <p>
                                     <div class="col-lg-6">
@@ -164,6 +165,10 @@
                                 </div>
 
                                 <div id="interiorfeatures" class="tab-pane fade">
+
+                                 {!!Form::open(array('action' => 'VariantController@updateFeatures')) !!}
+                                   <input type="hidden" name="featureType" value='2'>
+                                    <input type="hidden" name="variantId" value={{{ $variant->id or '' }}}>
                                     <h4>Interior Features</h4>
                                     <p>
                                     <div class="col-lg-12">
@@ -378,10 +383,16 @@
                                             </label>
                                         </div>
                                     </div>
-                                    </div>                                     
+               
+                                    </div> 
+                                    <input type="submit" class="btn btn-primary" name="interiorFeaturesSubmit" value="Submit">                                    
                                     </p>
+                                    {!!Form::close() !!}
                                 </div>
                                 <div id="exteriorfeatures" class="tab-pane fade ">
+                                    {!!Form::open(array('action' => 'VariantController@updateFeatures')) !!}
+                                      <input type="hidden" name="featureType" value='3'>
+                                    <input type="hidden" name="variantId" value={{{ $variant->id or '' }}}>
                                     <h4>Exterior Features</h4>
                                     <p>
                                     <div class="col-lg-12">
@@ -516,7 +527,9 @@
                                         </div>
                                         </div>
                                     </div>
+                                     <input type="submit" class="btn btn-primary" name="exteriorFeaturesSubmit" value="Submit">                                    
                                     </p>
+                                     {!!Form::close() !!}
                                 </div>
                             </div>
                         </div>
@@ -582,7 +595,17 @@
                                 <h4 id="myModalLabel" class="modal-title">Edit Fuel efficiency details</h4>
                             </div>
                             <div class="modal-body">
-                               
+                               {!!Form::open(array('action' => 'VariantController@updateFuelEfficiency')) !!}
+                                <input type="hidden" name="variantId" value={{{ $variant->id or '' }}}>
+                                    <label>Mileage Highway</label>
+                                    <input type="text" name="mileage_highway" value='{{{ $variant->fuel()->first()->mileage_highway or ''}}}'>
+                                    <br>
+                                    <label>Mileage City</label>
+                                    <input type="text" name="mileage_city" value='{{{ $variant->fuel()->first()->mileage_city or ''}}}'>
+                                    <br>
+                                    <label>Mileage Overall</label>
+                                    <input type="text" name="mileage_overall" value='{{{ $variant->fuel()->first()->mileage_overall or ''}}}'>
+                               {!!Form::close() !!}
                             </div>
                             <div class="modal-footer">
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
