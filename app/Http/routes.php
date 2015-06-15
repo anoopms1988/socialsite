@@ -31,6 +31,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('updatefuelefficiency', 'VariantController@updateFuelEfficiency');
     Route::post('updatepricedetails', 'VariantController@updatePriceDetails');
     Route::post('updateenginedetails', 'VariantController@updateEngineDetails');
+    Route::post('updatesteeringdetails', 'VariantController@updateSteeringDetails');
+    Route::post('updatewheeldetails', 'VariantController@updateWheelDetails');
+    Route::post('updatedimensiondetails', 'VariantController@updateDimensionDetails');
 });
  Route::get('/', 'site\HomeController@index');
 

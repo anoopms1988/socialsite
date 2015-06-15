@@ -15,6 +15,9 @@ use App\ExteriorFeatures;
 use App\FuelEfficiency;
 use App\Price;
 use App\Engine;
+use App\Steering;
+use App\Wheel;
+use App\Dimension;
 
 class VariantController extends Controller
 {
@@ -302,7 +305,13 @@ class VariantController extends Controller
         try {
             $variantId = $request->get('variantId');
             $Engine = Engine::where('variant_id', $variantId)->first();
-           // $Engine->
+            $Engine->torque=$request->get('torque');
+            $Engine->displacement=$request->get('displacement');
+            $Engine->power=$request->get('power');
+            $Engine->cylinders=$request->get('cylinders');
+            $Engine->valvespercylinder=$request->get('valvespercylinder');
+            $Engine->valvemechanism=$request->get('valvemechanism');
+            $Engine->cyclinderconfiguration=$request->get('cyclinderconfiguration');
             $Engine->update();
             return redirect('admin/variant/' . $variantId . '#features');
         }
@@ -310,4 +319,68 @@ class VariantController extends Controller
             echo $exc->getTraceAsString();
         }
     }
+
+
+    /**
+     * Update the steering details of car 
+     *
+     * @param  array $request
+     * @return Response
+     */
+     public function updateSteeringDetails(Request $request) {
+        try {
+            $variantId = $request->get('variantId');
+            $Steering= Steering::where('variant_id', $variantId)->first();
+            $Steering->turning_radius=$request->get('turning_radius');
+            $Steering->steering_type=$request->get('steering_type');
+            $Steering->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        } catch (Exception $e) {
+             echo $exc->getTraceAsString();
+        }
+     }
+
+     /**
+     * Update the wheel details of car 
+     *
+     * @param  array $request
+     * @return Response
+     */
+      public function updateWheelDetails(Request $request) {
+        try {
+            $variantId = $request->get('variantId');
+            $Wheel= Wheel::where('variant_id', $variantId)->first();
+            $Wheel->tyres=$request->get('tyres');
+            $Wheel->wheelsize=$request->get('wheelsize');
+            $Wheel->wheeltype=$request->get('wheeltype');
+            $Wheel->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        } catch (Exception $e) {
+             echo $exc->getTraceAsString();
+        }
+     }
+
+
+     /**
+     * Update the dimensions details of car 
+     *
+     * @param  array $request
+     * @return Response
+     */
+     public function updateDimensionDetails(Request $request) {
+        try {
+            $variantId = $request->get('variantId');
+            $Dimension= Dimension::where('variant_id', $variantId)->first();
+            $Dimension->length=$request->get('length');
+            $Dimension->width=$request->get('width');
+            $Dimension->height=$request->get('height');
+            $Dimension->wheelbase=$request->get('wheelbase');
+            $Dimension->bootspace=$request->get('bootspace');
+            $Dimension->kerbweight  =$request->get('kerbweight');
+            $Dimension->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        } catch (Exception $e) {
+             echo $exc->getTraceAsString();
+        }
+     }
 }
