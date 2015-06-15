@@ -28,6 +28,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('assistance', 'GeneralController@listAssistanceDetails');
     Route::post('addassistance', 'GeneralController@addAssistanceDetails');
     Route::post('updatefeatures', 'VariantController@updateFeatures');
+    Route::post('updatefuelefficiency', 'VariantController@updateFuelEfficiency');
+    Route::post('updatepricedetails', 'VariantController@updatePriceDetails');
+    Route::post('updateenginedetails', 'VariantController@updateEngineDetails');
 });
  Route::get('/', 'site\HomeController@index');
 

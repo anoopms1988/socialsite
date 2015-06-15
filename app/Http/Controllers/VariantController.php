@@ -12,6 +12,9 @@ use Carbon\Carbon;
 use App\SafetyFeatures;
 use App\InteriorFeatures;
 use App\ExteriorFeatures;
+use App\FuelEfficiency;
+use App\Price;
+use App\Engine;
 
 class VariantController extends Controller
 {
@@ -243,10 +246,68 @@ class VariantController extends Controller
         }
         
         catch(Exception $e) {
+            echo $exc->getTraceAsString();
         }
     }
     
+    /**
+     * Update the fuel efficicency of car details
+     *
+     * @param  array $request
+     * @return Response
+     */
     public function updateFuelEfficiency(Request $request) {
-        $variantId = $request->get('variantId');
+        try {
+            $variantId = $request->get('variantId');
+            $FuelEfficiency = FuelEfficiency::where('variant_id', $variantId)->first();
+            $FuelEfficiency->mileage_highway = $request->get('mileage_highway');
+            $FuelEfficiency->mileage_city = $request->get('mileage_city');
+            $FuelEfficiency->mileage_overall = $request->get('mileage_overall');
+            $FuelEfficiency->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        }
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+    /**
+     * Update the fuel efficicency of car details
+     *
+     * @param  array $request
+     * @return Response
+     */
+    public function updatePriceDetails(Request $request) {
+        try {
+            $variantId = $request->get('variantId');
+            $Price = Price::where('variant_id', $variantId)->first();
+            $Price->showroomprice = $request->get('showroom_price');
+            $Price->onroadprice = $request->get('onroad_price');
+            $Price->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        }
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+
+    /**
+     * Update the engine details of car details
+     *
+     * @param  array $request
+     * @return Response
+     */
+      public function updateEngineDetails(Request $request) {
+        try {
+            $variantId = $request->get('variantId');
+            $Engine = Engine::where('variant_id', $variantId)->first();
+           // $Engine->
+            $Engine->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        }
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
     }
 }
