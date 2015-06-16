@@ -18,7 +18,8 @@ use App\Engine;
 use App\Steering;
 use App\Wheel;
 use App\Dimension;
-
+use App\Brake;
+use App\Capacity;
 class VariantController extends Controller
 {
     
@@ -378,6 +379,44 @@ class VariantController extends Controller
             $Dimension->bootspace=$request->get('bootspace');
             $Dimension->kerbweight  =$request->get('kerbweight');
             $Dimension->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        } catch (Exception $e) {
+             echo $exc->getTraceAsString();
+        }
+     }
+
+     /**
+     * Update the brake details of car 
+     *
+     * @param  array $request
+     * @return Response
+     */
+      public function updateBrakeDetails(Request $request) {
+        try {
+            $variantId = $request->get('variantId');
+            $Brake= Brake::where('variant_id',$variantId)->first();
+            $Brake->rear_brakes=$request->get('rear_brakes');
+            $Brake->front_brakes=$request->get('front_brakes');
+            $Brake->update();
+            return redirect('admin/variant/' . $variantId . '#features');
+        } catch (Exception $e) {
+             echo $exc->getTraceAsString();
+        }
+     }
+
+     /**
+     * Update the capacity details of car 
+     *
+     * @param  array $request
+     * @return Response
+     */
+      public function updateCapacityDetails(Request $request) {
+        try {
+            $variantId = $request->get('variantId');
+            $Capacity= Capacity::where('variant_id',$variantId)->first();
+            $Capacity->seating_capacity=$request->get('seating_capacity');
+            $Capacity->tank_capacity=$request->get('tank_capacity');
+            $Capacity->update();
             return redirect('admin/variant/' . $variantId . '#features');
         } catch (Exception $e) {
              echo $exc->getTraceAsString();

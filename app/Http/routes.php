@@ -34,6 +34,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('updatesteeringdetails', 'VariantController@updateSteeringDetails');
     Route::post('updatewheeldetails', 'VariantController@updateWheelDetails');
     Route::post('updatedimensiondetails', 'VariantController@updateDimensionDetails');
+    Route::post('updatebrakedetails', 'VariantController@updateBrakeDetails');
+    Route::post('updatecapacitydetails', 'VariantController@updateCapacityDetails');
 });
  Route::get('/', 'site\HomeController@index');
 

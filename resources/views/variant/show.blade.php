@@ -1073,24 +1073,32 @@
                         <!-- /.panel-body -->
                     </div>
                 <!-- Button trigger modal -->
-                <button data-target="#fuel_efficiency" data-toggle="modal" class="btn btn-primary btn-lg">
+                <button data-target="#brake_details" data-toggle="modal" class="btn btn-primary btn-lg">
                     Edit
                 </button>
                 <!-- Modal -->
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="fuel_efficiency" class="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="brake_details" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                <h4 id="myModalLabel" class="modal-title">Edit Fuel efficiency details</h4>
+                                <h4 id="myModalLabel" class="modal-title">Edit Brake details</h4>
                             </div>
+                             {!!Form::open(array('action' =>'VariantController@updateBrakeDetails'))!!}
                             <div class="modal-body">
-                               
+                                <input type="hidden" name="variantId" value={{{ $variant->id or '' }}}>
+                                <label>Rear brakes</label>
+                                <input type="text" name="rear_brakes" value='{{{$variant->brake()->first()->rear_brakes or ''}}}'>
+                                <br>
+                                <label>Front brakes</label>
+                                <input type="text" name="front_brakes" value='{{{$variant->brake()->first()->front_brakes or ''}}}'>
+                                <br>
                             </div>
                             <div class="modal-footer">
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-                                <button class="btn btn-primary" type="button">Save changes</button>
+                                <input type="submit" name="brake_submit" class="btn btn-primary" value="Save changes">
                             </div>
+                            {!!Form::close() !!}
                         </div>
                         <!-- /.modal-content -->
                     </div>
@@ -1138,24 +1146,32 @@
                         <!-- /.panel-body -->
                     </div>
                 <!-- Button trigger modal -->
-                <button data-target="#fuel_efficiency" data-toggle="modal" class="btn btn-primary btn-lg">
+                <button data-target="#capacity" data-toggle="modal" class="btn btn-primary btn-lg">
                     Edit
                 </button>
                 <!-- Modal -->
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="fuel_efficiency" class="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="capacity" class="modal fade">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
                                 <h4 id="myModalLabel" class="modal-title">Edit Fuel efficiency details</h4>
                             </div>
+                            {!!Form::open(array('action' =>'VariantController@updateCapacityDetails'))!!}
                             <div class="modal-body">
-                               
+                               <input type="hidden" name="variantId" value={{{ $variant->id or '' }}}>
+                                <label>Seating capacity</label>
+                                <input type="text" name="seating_capacity" value='{{{$variant->capacity()->first()->seating_capacity or ''}}}'>
+                                <br>
+                                <label>Tank capacity</label>
+                                <input type="text" name="tank_capacity" value='{{{$variant->capacity()->first()->tank_capacity or ''}}}'>
+                                <br>
                             </div>
                             <div class="modal-footer">
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
-                                <button class="btn btn-primary" type="button">Save changes</button>
+                                 <input type="submit" name="capacity_submit" class="btn btn-primary" value="Save changes">
                             </div>
+                            {!!Form::close() !!}
                         </div>
                         <!-- /.modal-content -->
                     </div>
