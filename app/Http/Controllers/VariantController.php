@@ -88,10 +88,10 @@ class VariantController extends Controller
      */
     public function show($id) {
         try {
-            $variant = Variant::findOrFail($id);
-            $safetyFeatures = SafetyFeatures::findOrFail($id);
-            $interiorFeatures = InteriorFeatures::findOrFail($id);
-            $exteriorFeatures = ExteriorFeatures::findOrFail($id);
+            $variant = Variant::find($id);
+            $safetyFeatures = SafetyFeatures::find($id);
+            $interiorFeatures = InteriorFeatures::find($id);
+            $exteriorFeatures = ExteriorFeatures::find($id);
             return view('variant.show', compact('variant', 'safetyFeatures', 'interiorFeatures', 'exteriorFeatures'));
         }
         catch(Exception $exc) {
@@ -294,25 +294,24 @@ class VariantController extends Controller
             echo $exc->getTraceAsString();
         }
     }
-
-
+    
     /**
      * Update the engine details of car details
      *
      * @param  array $request
      * @return Response
      */
-      public function updateEngineDetails(Request $request) {
+    public function updateEngineDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
             $Engine = Engine::where('variant_id', $variantId)->first();
-            $Engine->torque=$request->get('torque');
-            $Engine->displacement=$request->get('displacement');
-            $Engine->power=$request->get('power');
-            $Engine->cylinders=$request->get('cylinders');
-            $Engine->valvespercylinder=$request->get('valvespercylinder');
-            $Engine->valvemechanism=$request->get('valvemechanism');
-            $Engine->cyclinderconfiguration=$request->get('cyclinderconfiguration');
+            $Engine->torque = $request->get('torque');
+            $Engine->displacement = $request->get('displacement');
+            $Engine->power = $request->get('power');
+            $Engine->cylinders = $request->get('cylinders');
+            $Engine->valvespercylinder = $request->get('valvespercylinder');
+            $Engine->valvemechanism = $request->get('valvemechanism');
+            $Engine->cyclinderconfiguration = $request->get('cyclinderconfiguration');
             $Engine->update();
             return redirect('admin/variant/' . $variantId . '#features');
         }
@@ -320,106 +319,109 @@ class VariantController extends Controller
             echo $exc->getTraceAsString();
         }
     }
-
-
+    
     /**
-     * Update the steering details of car 
+     * Update the steering details of car
      *
      * @param  array $request
      * @return Response
      */
-     public function updateSteeringDetails(Request $request) {
+    public function updateSteeringDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Steering= Steering::where('variant_id', $variantId)->first();
-            $Steering->turning_radius=$request->get('turning_radius');
-            $Steering->steering_type=$request->get('steering_type');
+            $Steering = Steering::where('variant_id', $variantId)->first();
+            $Steering->turning_radius = $request->get('turning_radius');
+            $Steering->steering_type = $request->get('steering_type');
             $Steering->update();
             return redirect('admin/variant/' . $variantId . '#features');
-        } catch (Exception $e) {
-             echo $exc->getTraceAsString();
         }
-     }
-
-     /**
-     * Update the wheel details of car 
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+    /**
+     * Update the wheel details of car
      *
      * @param  array $request
      * @return Response
      */
-      public function updateWheelDetails(Request $request) {
+    public function updateWheelDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Wheel= Wheel::where('variant_id', $variantId)->first();
-            $Wheel->tyres=$request->get('tyres');
-            $Wheel->wheelsize=$request->get('wheelsize');
-            $Wheel->wheeltype=$request->get('wheeltype');
+            $Wheel = Wheel::where('variant_id', $variantId)->first();
+            $Wheel->tyres = $request->get('tyres');
+            $Wheel->wheelsize = $request->get('wheelsize');
+            $Wheel->wheeltype = $request->get('wheeltype');
             $Wheel->update();
             return redirect('admin/variant/' . $variantId . '#features');
-        } catch (Exception $e) {
-             echo $exc->getTraceAsString();
         }
-     }
-
-
-     /**
-     * Update the dimensions details of car 
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+    /**
+     * Update the dimensions details of car
      *
      * @param  array $request
      * @return Response
      */
-     public function updateDimensionDetails(Request $request) {
+    public function updateDimensionDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Dimension= Dimension::where('variant_id', $variantId)->first();
-            $Dimension->length=$request->get('length');
-            $Dimension->width=$request->get('width');
-            $Dimension->height=$request->get('height');
-            $Dimension->wheelbase=$request->get('wheelbase');
-            $Dimension->bootspace=$request->get('bootspace');
-            $Dimension->kerbweight  =$request->get('kerbweight');
+            $Dimension = Dimension::where('variant_id', $variantId)->first();
+            $Dimension->length = $request->get('length');
+            $Dimension->width = $request->get('width');
+            $Dimension->height = $request->get('height');
+            $Dimension->wheelbase = $request->get('wheelbase');
+            $Dimension->bootspace = $request->get('bootspace');
+            $Dimension->kerbweight = $request->get('kerbweight');
             $Dimension->update();
             return redirect('admin/variant/' . $variantId . '#features');
-        } catch (Exception $e) {
-             echo $exc->getTraceAsString();
         }
-     }
-
-     /**
-     * Update the brake details of car 
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+    /**
+     * Update the brake details of car
      *
      * @param  array $request
      * @return Response
      */
-      public function updateBrakeDetails(Request $request) {
+    public function updateBrakeDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Brake= Brake::where('variant_id',$variantId)->first();
-            $Brake->rear_brakes=$request->get('rear_brakes');
-            $Brake->front_brakes=$request->get('front_brakes');
+            $Brake = Brake::where('variant_id', $variantId)->first();
+            $Brake->rear_brakes = $request->get('rear_brakes');
+            $Brake->front_brakes = $request->get('front_brakes');
             $Brake->update();
             return redirect('admin/variant/' . $variantId . '#features');
-        } catch (Exception $e) {
-             echo $exc->getTraceAsString();
         }
-     }
-
-     /**
-     * Update the capacity details of car 
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
+    }
+    
+    /**
+     * Update the capacity details of car
      *
      * @param  array $request
      * @return Response
      */
-      public function updateCapacityDetails(Request $request) {
+    public function updateCapacityDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Capacity= Capacity::where('variant_id',$variantId)->first();
-            $Capacity->seating_capacity=$request->get('seating_capacity');
-            $Capacity->tank_capacity=$request->get('tank_capacity');
+            $Capacity = Capacity::where('variant_id', $variantId)->first();
+            $Capacity->seating_capacity = $request->get('seating_capacity');
+            $Capacity->tank_capacity = $request->get('tank_capacity');
             $Capacity->update();
             return redirect('admin/variant/' . $variantId . '#features');
-        } catch (Exception $e) {
-             echo $exc->getTraceAsString();
         }
-     }
+        catch(Exception $e) {
+            echo $exc->getTraceAsString();
+        }
+    }
 }
