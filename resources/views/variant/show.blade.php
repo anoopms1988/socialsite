@@ -597,6 +597,7 @@
                             {!!Form::open(array('action' =>'VariantController@updateFuelEfficiency'))!!}
                             <div class="modal-body">                 
                                 <input type="hidden" name="variantId" value={{{ $variant->id or '' }}}>
+                                
                                     <label>Mileage Highway</label>
                                     <input type="text" name="mileage_highway" value='{{{ $variant->fuel()->first()->mileage_highway or ''}}}'>
                                     <br>
@@ -609,6 +610,11 @@
                             </div>
                             <div class="modal-footer">
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                                @if($variant->fuel()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <input type="submit" name="fuel_efficiency_submit" class="btn btn-primary" value="Save changes">
                             </div>
                             {!!Form::close() !!}
@@ -681,6 +687,11 @@
                                     <br>                     
                             </div>
                             <div class="modal-footer">
+                                @if($variant->price()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                                 <input type="submit" name="price_details_submit" class="btn btn-primary" value="Save changes">
                             </div>
@@ -779,6 +790,11 @@
                                 <br>
                             </div>
                             <div class="modal-footer">
+                                @if($variant->engine()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                                 <input type="submit" name="engine_details_submit" class="btn btn-primary" value="Save changes">
                             </div>
@@ -852,6 +868,11 @@
                                 <br>
                             </div>
                             <div class="modal-footer">
+                                @if($variant->steering()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                                 <input type="submit" name="steering_details_submit" class="btn btn-primary" value="Save changes">
                             </div>
@@ -930,6 +951,11 @@
                                 <br>
                             </div>
                             <div class="modal-footer">
+                                @if($variant->wheel()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                                 <input type="submit" name="wheel_tyres_submit" class="btn btn-primary" value="Save changes">
                             </div>
@@ -1022,6 +1048,11 @@
                                 <br>
                             </div>
                             <div class="modal-footer">
+                                @if($variant->dimension()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                                 <input type="submit" name="dimensions_submit" class="btn btn-primary" value="Save changes">
                             </div>
@@ -1095,6 +1126,11 @@
                                 <br>
                             </div>
                             <div class="modal-footer">
+                                @if($variant->brake()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                                 <input type="submit" name="brake_submit" class="btn btn-primary" value="Save changes">
                             </div>
@@ -1168,6 +1204,11 @@
                                 <br>
                             </div>
                             <div class="modal-footer">
+                                @if($variant->capacity()->first())
+                                    <input type="hidden" name="action_type" value="edit" >
+                                @else
+                                    <input type="hidden" name="action_type" value="save" >
+                                @endif
                                 <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
                                  <input type="submit" name="capacity_submit" class="btn btn-primary" value="Save changes">
                             </div>

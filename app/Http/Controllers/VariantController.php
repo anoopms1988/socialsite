@@ -263,11 +263,18 @@ class VariantController extends Controller
     public function updateFuelEfficiency(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $FuelEfficiency = FuelEfficiency::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $FuelEfficiency = new FuelEfficiency();
+                $FuelEfficiency->variant_id = $variantId;
+            } 
+            else {
+                $FuelEfficiency = FuelEfficiency::where('variant_id', $variantId)->first();
+            }
             $FuelEfficiency->mileage_highway = $request->get('mileage_highway');
             $FuelEfficiency->mileage_city = $request->get('mileage_city');
             $FuelEfficiency->mileage_overall = $request->get('mileage_overall');
-            $FuelEfficiency->update();
+            $FuelEfficiency->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
@@ -284,10 +291,17 @@ class VariantController extends Controller
     public function updatePriceDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Price = Price::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $Price = new Price();
+                $Price->variant_id = $variantId;
+            } 
+            else {
+                $Price = Price::where('variant_id', $variantId)->first();
+            }
             $Price->showroomprice = $request->get('showroom_price');
             $Price->onroadprice = $request->get('onroad_price');
-            $Price->update();
+            $Price->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
@@ -304,7 +318,14 @@ class VariantController extends Controller
     public function updateEngineDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Engine = Engine::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $Engine = new Engine();
+                $Engine->variant_id = $variantId;
+            } 
+            else {
+                $Engine = Engine::where('variant_id', $variantId)->first();
+            }
             $Engine->torque = $request->get('torque');
             $Engine->displacement = $request->get('displacement');
             $Engine->power = $request->get('power');
@@ -312,7 +333,7 @@ class VariantController extends Controller
             $Engine->valvespercylinder = $request->get('valvespercylinder');
             $Engine->valvemechanism = $request->get('valvemechanism');
             $Engine->cyclinderconfiguration = $request->get('cyclinderconfiguration');
-            $Engine->update();
+            $Engine->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
@@ -329,10 +350,18 @@ class VariantController extends Controller
     public function updateSteeringDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Steering = Steering::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $Steering = new Steering();
+                $Steering->variant_id = $variantId;
+            } 
+            else {
+                $Steering = Steering::where('variant_id', $variantId)->first();
+            }
+            
             $Steering->turning_radius = $request->get('turning_radius');
             $Steering->steering_type = $request->get('steering_type');
-            $Steering->update();
+            $Steering->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
@@ -349,11 +378,18 @@ class VariantController extends Controller
     public function updateWheelDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Wheel = Wheel::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $Wheel = new Wheel();
+                $Wheel->variant_id = $variantId;
+            } 
+            else {
+                $Wheel = Wheel::where('variant_id', $variantId)->first();
+            }
             $Wheel->tyres = $request->get('tyres');
             $Wheel->wheelsize = $request->get('wheelsize');
             $Wheel->wheeltype = $request->get('wheeltype');
-            $Wheel->update();
+            $Wheel->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
@@ -370,14 +406,21 @@ class VariantController extends Controller
     public function updateDimensionDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Dimension = Dimension::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $Dimension = new Dimension();
+                $Dimension->variant_id = $variantId;
+            } 
+            else {
+                $Dimension = Dimension::where('variant_id', $variantId)->first();
+            }
             $Dimension->length = $request->get('length');
             $Dimension->width = $request->get('width');
             $Dimension->height = $request->get('height');
             $Dimension->wheelbase = $request->get('wheelbase');
             $Dimension->bootspace = $request->get('bootspace');
             $Dimension->kerbweight = $request->get('kerbweight');
-            $Dimension->update();
+            $Dimension->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
@@ -394,10 +437,17 @@ class VariantController extends Controller
     public function updateBrakeDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Brake = Brake::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $Brake = new Brake();
+                $Brake->variant_id = $variantId;
+            } 
+            else {
+                $Brake = Brake::where('variant_id', $variantId)->first();
+            }
             $Brake->rear_brakes = $request->get('rear_brakes');
             $Brake->front_brakes = $request->get('front_brakes');
-            $Brake->update();
+            $Brake->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
@@ -414,10 +464,18 @@ class VariantController extends Controller
     public function updateCapacityDetails(Request $request) {
         try {
             $variantId = $request->get('variantId');
-            $Capacity = Capacity::where('variant_id', $variantId)->first();
+            $actionType = $request->get('action_type');
+            if ($actionType == 'save') {
+                $Capacity = new Capacity();
+                $Capacity->variant_id = $variantId;
+            } 
+            else {
+                $Capacity = Capacity::where('variant_id', $variantId)->first();
+            }
+            
             $Capacity->seating_capacity = $request->get('seating_capacity');
             $Capacity->tank_capacity = $request->get('tank_capacity');
-            $Capacity->update();
+            $Capacity->save();
             return redirect('admin/variant/' . $variantId . '#features');
         }
         catch(Exception $e) {
