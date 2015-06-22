@@ -2,5 +2,5 @@
 
 return [
 	//userdefined constants
-        'paginationCount'=>2,
+        'paginationCount'=>10,
 ];

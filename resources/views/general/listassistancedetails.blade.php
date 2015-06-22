@@ -10,7 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Roadside assistance details  
-                <button class="btn btn-primary btn-sm" data-toggle="modal" style="float: right; " data-target="#add_roadside_details">
+                <button class="btn btn-primary btn-sm" data-toggle="modal" style="float: right; " data-target="#add_roadside_details" id="add_assistance">
                     Add details
                 </button>
                 <div class="modal fade" id="add_roadside_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -20,11 +20,13 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 <h4 class="modal-title" id="myModalLabel">Add roadside details</h4>
                             </div>
-                            {!! Form::open(array('id'=>'assistance_details_form')) !!}
+                            {!! Form::open(array('action' =>'GeneralController@addAssistanceDetails','id'=>'assistance_details_form')) !!}
                             <div class="modal-body">
                                 <?php
                                 echo Form::label('company', 'Company');
-                                echo Form::select('company', array_merge(array('' => 'Select'), $company), null, array('class' => 'form-control'));
+                                // $mergedArray=array_merge(array(''=>'Select'),$company);
+                                // dd($mergedArray);
+                                echo Form::select('company',array(''=>'Select')+$company, null, array('class' => 'form-control'));
                                // echo $errors->first('company'); 
                                 echo '<br>';
                                 echo Form::label('contact_number', 'Contact Number');
@@ -38,7 +40,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" id="add_assistance_details" class="btn btn-primary" >Save</button>
+                                <input type="submit" name="add_assistance_details" class="btn btn-primary" value="Save">
                             </div>
                             {!! Form::close() !!}
                         </div>
@@ -101,19 +103,27 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $('#add_assistance_details').click(function () {
-                $.ajax({
-                    type: "POST",
-                    url:'{{URL::to(trim('  /  '))}}/admin/addassistance',
-                    data: {data:$("#assistance_details_form").serialize(),_token: $('meta[name=csrf-token]').attr('content')},
-                    success: function (response) {
-                       if(response.status=="success"){
-                            location.reload();
-                       }
-                    }
-                });
-        
+        $('#add_assistance').click(function () {
+            $('#assistance_details_form')[0].reset();
+           
         });
+         $("#assistance_details_form").validate({
+            rules: {
+                company: "required",
+                contact_number: {
+                    number: true,
+                    required:true
+                },
+                contact_address: "required"
+            },
+            messages: {
+                company: "Enter  your name.",
+                contact_number: "Enter your phone number.",
+                contact_address: "Enter your feedback"
+            }
+        });
+
+
     });
 </script>
 @stop

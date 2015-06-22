@@ -42,8 +42,11 @@ class GeneralController extends Controller
      * @return void
      */
     public function addAssistanceDetails(Request $request) {
-        echo "test";
-        exit;
-        dd($request->all());
+        $Assistance=new Assistance();
+        $Assistance->company_id=$request->get('company');
+        $Assistance->contact_number=$request->get('contact_number');
+        $Assistance->address=$request->get('contact_address');
+        $Assistance->save();
+        return redirect('admin/assistance' );
     }
 }
