@@ -27,6 +27,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('deletereview', 'ReviewController@deleteReview');
     Route::get('assistance', 'GeneralController@listAssistanceDetails');
     Route::post('addassistance', 'GeneralController@addAssistanceDetails');
+    Route::post('editassistance', 'GeneralController@editAssistanceDetails');
+    Route::post('updateassistance', 'GeneralController@updateAssistanceDetails');
     Route::post('updatefeatures', 'VariantController@updateFeatures');
     Route::post('updatefuelefficiency', 'VariantController@updateFuelEfficiency');
     Route::post('updatepricedetails', 'VariantController@updatePriceDetails');
@@ -36,6 +38,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('updatedimensiondetails', 'VariantController@updateDimensionDetails');
     Route::post('updatebrakedetails', 'VariantController@updateBrakeDetails');
     Route::post('updatecapacitydetails', 'VariantController@updateCapacityDetails');
+    Route::post('deleteassistance', 'GeneralController@deleteAssistanceDetails');
+    Route::get('listvideos', 'GeneralController@listVideos');
 });
  Route::get('/', 'site\HomeController@index');
 

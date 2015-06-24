@@ -13,6 +13,16 @@
                 <button class="btn btn-primary btn-sm" data-toggle="modal" style="float: right; " data-target="#add_roadside_details" id="add_assistance">
                     Add details
                 </button>
+           
+                <div class="edit_roadside_details modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content" id="edit_assistance_details">
+                            
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
                 <div class="modal fade" id="add_roadside_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -48,6 +58,7 @@
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
+         
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -77,9 +88,9 @@
                                                 <td>{{{$assistanceDetailsValue->contact_number or ''}}}</td>
                                                 <td>{{{$assistanceDetailsValue->address or ''}}}</td>
                                                 <td>
-                                                    <button class="btn btn-primary btn-circle" type="button"><i class="fa fa-list"></i>
+                                                    <button class="editassistance btn btn-primary btn-circle" id="edit_{{$assistanceDetailsValue->id}}" type="button" data-toggle="modal"  data-target=".edit_roadside_details" ><i class="fa fa-list"></i>
                                                     </button>
-                                                    <button class="deletecar btn btn-warning btn-circle"  id="delete_car_" type="button"><i class="fa fa-times"></i>
+                                                    <button class="deleteassistance btn btn-warning btn-circle"  id="delete_{{$assistanceDetailsValue->id}}" type="button"><i class="fa fa-times"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -102,7 +113,40 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function () {
+          $('.deleteassistance').click(function () {
+            if (confirm("Do you want to delete this assistance details?")) {
+                var id = $(this).attr('id');
+                var splitElements = id.split("_");
+                var assistanceId = splitElements[1];
+                $.ajax({
+                    type: "POST",
+                    url: '{{URL::to(trim(' / '))}}/admin/deleteassistance',
+                    data: {id: assistanceId, _token: $('meta[name=csrf-token]').attr('content')},
+                    success: function (response) {
+                        if (response.status == "success") {
+                            location.reload();
+                        }
+                    }
+                });
+            }
+        });
 
+         $('.editassistance').click(function () {
+                var id = $(this).attr('id');
+                var splitElements = id.split("_");
+                var assistanceId = splitElements[1];
+                $.ajax({
+                    type: "POST",
+                    url: '{{URL::to(trim(' / '))}}/admin/editassistance',
+                    data: {id: assistanceId, _token: $('meta[name=csrf-token]').attr('content')},
+                    success: function (response) {
+                        //if (response.status == "success") {
+                            $("#edit_assistance_details").html(response);
+                        //}
+                    }
+                });
+
+        });
         $('#add_assistance').click(function () {
             $('#assistance_details_form')[0].reset();
            

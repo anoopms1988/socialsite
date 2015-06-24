@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Config;
 use App\Assistance;
 use App\Company;
 
-
 //use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests\AssistanceRequest;
@@ -42,11 +41,64 @@ class GeneralController extends Controller
      * @return void
      */
     public function addAssistanceDetails(Request $request) {
-        $Assistance=new Assistance();
-        $Assistance->company_id=$request->get('company');
-        $Assistance->contact_number=$request->get('contact_number');
-        $Assistance->address=$request->get('contact_address');
+        $Assistance = new Assistance();
+        $Assistance->company_id = $request->get('company');
+        $Assistance->contact_number = $request->get('contact_number');
+        $Assistance->address = $request->get('contact_address');
         $Assistance->save();
-        return redirect('admin/assistance' );
+        return redirect('admin/assistance');
+    }
+    
+    /**
+     * Delete assistance details
+     *
+     * @return void
+     */
+    public function deleteAssistanceDetails(Request $request) {
+        $assistanceId = $request->get('id');
+        $Assistance = Assistance::find($assistanceId);
+        $Assistance->is_active = 0;
+        if ($Assistance->update()) {
+            return response()->json(['status' => 'success']);
+        } 
+        else {
+            return response()->json(['status' => 'failure']);
+        }
+    }
+    
+    /**
+     * List videos
+     *
+     * @return void
+     */
+    
+    public function listVideos(Request $request) {
+        return view('general.listvideos');
+    }
+    
+    /**
+     * function to edit assistance details
+     * @param  Request $request
+     * @param  int     $id 
+     * @return null           
+     */
+    public function editAssistanceDetails(Request $request) {
+        $company = Company::lists('name', 'id');
+        $Assistance = Assistance::find($request->id);
+        return view('general.editassistance',compact('Assistance','company'));      
+    }
+
+    /**
+     * To update assistance details
+     * @param  Request $request
+     * @return null           
+     */
+    public function updateAssistanceDetails(Request $request) {
+        $Assistance = Assistance::find($request->assistance_id);
+        $Assistance->contact_number=$request->contact_number;
+        $Assistance->company_id=$request->company; 
+        $Assistance->address=$request->contact_address;  
+        $Assistance->update();
+        return redirect('admin/assistance');
     }
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
@@ -8,17 +7,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Review;
 
-class ReviewController extends Controller {
-
+class ReviewController extends Controller
+{
+    
     /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct() {
+        
         //$this->middleware('auth');
+        
+        
     }
-
+    
     /**
      * List reviews
      *
@@ -28,11 +31,12 @@ class ReviewController extends Controller {
         try {
             $reviews = Review::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
             return view('reviews.listreviews', compact('reviews'));
-        } catch (Exception $exc) {
+        }
+        catch(Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
-
+    
     /**
      * Review approval
      *
@@ -45,19 +49,22 @@ class ReviewController extends Controller {
             $review = Review::findOrFail($reviewId);
             if ($reviewType == 1) {
                 $review->is_approved = 1;
-            } else {
+            } 
+            else {
                 $review->is_approved = 0;
             }
             if ($review->update()) {
                 return response()->json(['status' => 'success']);
-            } else {
+            } 
+            else {
                 return response()->json(['status' => 'failure']);
             }
-        } catch (Exception $exc) {
+        }
+        catch(Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
-
+    
     /**
      * delete Review
      *
@@ -70,13 +77,13 @@ class ReviewController extends Controller {
             $review->is_active = 0;
             if ($review->update()) {
                 return response()->json(['status' => 'success']);
-            } else {
+            } 
+            else {
                 return response()->json(['status' => 'failure']);
             }
-        } catch (Exception $exc) {
+        }
+        catch(Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
-
- 
 }

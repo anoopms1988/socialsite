@@ -321,10 +321,12 @@
                                      <li>
                                         <a href="#">Insurance</a>
                                     </li>
-                                      <li>
+                                    <li>
                                         <a href="#">Dealers</a>
-                                    </li>
-                                    
+                                    </li>  
+                                    <li>
+                                        <a href="{{action('GeneralController@listVideos')}}">Videos</a>
+                                    </li>               
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
