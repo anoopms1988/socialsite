@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Assistance;
 use App\Company;
+use App\LoanEnquiry;
+
 
 //use Illuminate\Support\Facades\Session;
 
@@ -79,26 +81,36 @@ class GeneralController extends Controller
     /**
      * function to edit assistance details
      * @param  Request $request
-     * @param  int     $id 
-     * @return null           
+     * @param  int     $id
+     * @return null
      */
     public function editAssistanceDetails(Request $request) {
         $company = Company::lists('name', 'id');
         $Assistance = Assistance::find($request->id);
-        return view('general.editassistance',compact('Assistance','company'));      
+        return view('general.editassistance', compact('Assistance', 'company'));
     }
-
+    
     /**
      * To update assistance details
      * @param  Request $request
-     * @return null           
+     * @return null
      */
     public function updateAssistanceDetails(Request $request) {
         $Assistance = Assistance::find($request->assistance_id);
-        $Assistance->contact_number=$request->contact_number;
-        $Assistance->company_id=$request->company; 
-        $Assistance->address=$request->contact_address;  
+        $Assistance->contact_number = $request->contact_number;
+        $Assistance->company_id = $request->company;
+        $Assistance->address = $request->contact_address;
         $Assistance->update();
         return redirect('admin/assistance');
+    }
+
+    /**
+     * To list loan enquiry details
+     * @param  Request $request 
+     * @return null           
+     */
+    public function listLoanEnquiryDetails(Request $request) {
+         $loanEnquiryDetails = LoanEnquiry::paginate(Config::get('constants.paginationCount'));
+         return view('general.listloanenquiries', compact('loanEnquiryDetails'));    
     }
 }

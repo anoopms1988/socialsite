@@ -61,7 +61,7 @@ class Variant extends Model
     public function steering() {
         return $this->hasOne('App\Steering');
     }
-
+    
     /**
      * Each variant has wheel tyre details
      *
@@ -69,7 +69,7 @@ class Variant extends Model
     public function wheel() {
         return $this->hasOne('App\Wheel');
     }
-
+    
     /**
      * Each variant has dimensions
      *
@@ -77,7 +77,7 @@ class Variant extends Model
     public function dimension() {
         return $this->hasOne('App\Dimension');
     }
-
+    
     /**
      * Each variant has brakes
      *
@@ -85,7 +85,7 @@ class Variant extends Model
     public function brake() {
         return $this->hasOne('App\Brake');
     }
-
+    
     /**
      * Each variant has capacity
      *
@@ -93,5 +93,12 @@ class Variant extends Model
     public function capacity() {
         return $this->hasOne('App\Capacity');
     }
-
+    
+    /**
+     * each varaint has one to many loan enquiries
+     * @return null
+     */
+    public function loanEnquiry() {
+        return $this->hasMany('App\LoanEnquiry');  
+    }
 }

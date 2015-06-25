@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('updatecapacitydetails', 'VariantController@updateCapacityDetails');
     Route::post('deleteassistance', 'GeneralController@deleteAssistanceDetails');
     Route::get('listvideos', 'GeneralController@listVideos');
+    Route::get('loanenquiry', 'GeneralController@listLoanEnquiryDetails');
 });
  Route::get('/', 'site\HomeController@index');
 

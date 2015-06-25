@@ -316,7 +316,7 @@
                                         <a href="{{action('GeneralController@listAssistanceDetails')}}">Road side assistance</a>
                                     </li>
                                      <li>
-                                        <a href="#">Loan</a>
+                                        <a href="{{action('GeneralController@listLoanEnquiryDetails')}}">Loan</a>
                                     </li>
                                      <li>
                                         <a href="#">Insurance</a>
