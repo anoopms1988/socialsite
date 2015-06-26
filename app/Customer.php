@@ -21,4 +21,12 @@ class Customer extends Model
     public function review() {
         return $this->hasMany('App\Review');
     }
+    
+    /**
+     * Each customer has more than one loan enquiry
+     * @return  null
+     */
+    public function loanEnquiry() {
+        return $this->hasMany('App\LoanEnquiry');
+    }
 }

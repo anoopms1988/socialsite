@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('deleteassistance', 'GeneralController@deleteAssistanceDetails');
     Route::get('listvideos', 'GeneralController@listVideos');
     Route::get('loanenquiry', 'GeneralController@listLoanEnquiryDetails');
+    Route::get('editloanenquiry/{id}', 'GeneralController@specificLoanEnquiryDetails');
 });
  Route::get('/', 'site\HomeController@index');
 

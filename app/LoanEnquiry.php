@@ -29,4 +29,12 @@ class LoanEnquiry extends Model
     public function carType() {
         return $this->belongsTo('App\Variant');
     }
+    
+    /**
+     * one to many relationship b/w customer and loan enquiries
+     * @return null
+     */
+    public function customer() {
+        return $this->belongsTo('App\Customer');
+    }
 }

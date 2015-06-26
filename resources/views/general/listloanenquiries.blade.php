@@ -39,9 +39,9 @@
                                                 <td>{{$loanEnquiryDetailsValue->email or ''}}</td>
                                                 <td>{{$loanEnquiryDetailsValue->mobile or ''}}</td>
                                                 <td>
-                                                    <button class="editassistance btn btn-primary btn-circle" id="editassistance_{{$loanEnquiryDetailsValue->id}}" type="button"><i class="fa fa-list"></i>
+                                                    <button class="editloan btn btn-primary btn-circle" id="editloan_{{$loanEnquiryDetailsValue->id}}" type="button"><i class="fa fa-list"></i>
                                                     </button>
-                                                    <button class="deleteassistance btn btn-warning btn-circle"  id="deleteassistance_{{$loanEnquiryDetailsValue->id}}" type="button"><i class="fa fa-times"></i>
+                                                    <button class="deleteloan btn btn-warning btn-circle"  id="deleteloan_{{$loanEnquiryDetailsValue->id}}" type="button"><i class="fa fa-times"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -89,11 +89,11 @@
             var variantId = splitElements[1];
             window.location.href = "{{URL::to(trim(' / '))}}/admin/variant/" + variantId;
         });
-         $('.editvariant').click(function () {
+         $('.editloan').click(function () {
             var id = $(this).attr('id');
             var splitElements = id.split("_");
-            var variantId = splitElements[1];
-            window.location.href = "{{URL::to(trim(' / '))}}/admin/variant/" + variantId+"/edit";
+            var loanId = splitElements[1];
+            window.location.href = "{{URL::to(trim(' / '))}}/admin/editloanenquiry/" + loanId;
         });
     });
 </script>
