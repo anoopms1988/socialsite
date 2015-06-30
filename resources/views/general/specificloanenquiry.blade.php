@@ -22,6 +22,7 @@
                                 echo Form::label('cartype', 'Cartype');
                                 echo Form::select('cartype',array(''=>'Select')+$carType,$specificLoanEnquiry->cartype_id, array('class' => 'form-control'));
                                 echo '<br>';
+                             
                             ?>
                         </div>
                         <input  name="loandetails_submit" class="btn btn-primary" type="submit" value="Submit">

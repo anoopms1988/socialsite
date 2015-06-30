@@ -9,9 +9,6 @@ use App\Assistance;
 use App\Company;
 use App\LoanEnquiry;
 use App\Cartype;
-
-//use Illuminate\Support\Facades\Session;
-
 use App\Http\Requests\AssistanceRequest;
 
 class GeneralController extends Controller
@@ -24,7 +21,7 @@ class GeneralController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware( 'auth' );
     }
     
     /**
@@ -32,11 +29,11 @@ class GeneralController extends Controller
      *
      * @return void
      */
-    public function listAssistanceDetails($param = null)
+    public function listAssistanceDetails( $param             = null )
     {
-        $company = Company::lists('name', 'id');
-        $assistanceDetails = Assistance::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
-        return view('general.listassistancedetails', compact('assistanceDetails', 'company'));
+        $company           = Company::lists( 'name', 'id' );
+        $assistanceDetails = Assistance::where( 'is_active', 1 )->paginate( Config::get( 'constants.paginationCount' ) );
+        return view( 'general.listassistancedetails', compact( 'assistanceDetails', 'company' ) );
     }
     
     /**
@@ -44,14 +41,14 @@ class GeneralController extends Controller
      *
      * @return void
      */
-    public function addAssistanceDetails(Request $request)
+    public function addAssistanceDetails( Request $request )
     {
-        $Assistance = new Assistance();
-        $Assistance->company_id = $request->get('company');
-        $Assistance->contact_number = $request->get('contact_number');
-        $Assistance->address = $request->get('contact_address');
+        $Assistance                 = new Assistance();
+        $Assistance->company_id     = $request->get( 'company' );
+        $Assistance->contact_number = $request->get( 'contact_number' );
+        $Assistance->address        = $request->get( 'contact_address' );
         $Assistance->save();
-        return redirect('admin/assistance');
+        return redirect( 'admin/assistance' );
     }
     
     /**
@@ -59,16 +56,16 @@ class GeneralController extends Controller
      *
      * @return void
      */
-    public function deleteAssistanceDetails(Request $request)
+    public function deleteAssistanceDetails( Request $request )
     {
-        $assistanceId = $request->get('id');
-        $Assistance = Assistance::find($assistanceId);
+        $assistanceId          = $request->get( 'id' );
+        $Assistance            = Assistance::find( $assistanceId );
         $Assistance->is_active = 0;
-        if ($Assistance->update()) {
-            return response()->json(['status' => 'success']);
+        if( $Assistance->update() ) {
+            return response()->json( ['status' => 'success'] );
         } 
         else {
-            return response()->json(['status' => 'failure']);
+            return response()->json( ['status' => 'failure'] );
         }
     }
     
@@ -78,9 +75,9 @@ class GeneralController extends Controller
      * @return void
      */
     
-    public function listVideos(Request $request)
+    public function listVideos( Request $request )
     {
-        return view('general.listvideos');
+        return view( 'general.listvideos' );
     }
     
     /**
@@ -89,11 +86,11 @@ class GeneralController extends Controller
      * @param  int     $id
      * @return null
      */
-    public function editAssistanceDetails(Request $request)
+    public function editAssistanceDetails( Request $request )
     {
-        $company = Company::lists('name', 'id');
-        $Assistance = Assistance::find($request->id);
-        return view('general.editassistance', compact('Assistance', 'company'));
+        $company    = Company::lists( 'name', 'id' );
+        $Assistance = Assistance::find( $request->id );
+        return view( 'general.editassistance', compact( 'Assistance', 'company' ) );
     }
     
     /**
@@ -101,14 +98,14 @@ class GeneralController extends Controller
      * @param  Request $request
      * @return view
      */
-    public function updateAssistanceDetails(Request $request)
+    public function updateAssistanceDetails( Request $request )
     {
-        $Assistance = Assistance::find($request->assistance_id);
+        $Assistance                 = Assistance::find( $request->assistance_id );
         $Assistance->contact_number = $request->contact_number;
-        $Assistance->company_id = $request->company;
-        $Assistance->address = $request->contact_address;
+        $Assistance->company_id     = $request->company;
+        $Assistance->address        = $request->contact_address;
         $Assistance->update();
-        return redirect('admin/assistance');
+        return redirect( 'admin/assistance' );
     }
     
     /**
@@ -116,10 +113,10 @@ class GeneralController extends Controller
      * @param  Request $request
      * @return view
      */
-    public function listLoanEnquiryDetails(Request $request)
+    public function listLoanEnquiryDetails( Request $request )
     {
-        $loanEnquiryDetails = LoanEnquiry::where('is_active', 1)->paginate(Config::get('constants.paginationCount'));
-        return view('general.listloanenquiries', compact('loanEnquiryDetails'));
+        $loanEnquiryDetails = LoanEnquiry::where( 'is_active', 1 )->paginate( Config::get( 'constants.paginationCount' ) );
+        return view( 'general.listloanenquiries', compact( 'loanEnquiryDetails' ) );
     }
     
     /**
@@ -128,10 +125,10 @@ class GeneralController extends Controller
      * @param  int     $loanId
      * @return view
      */
-    public function specificLoanEnquiryDetails(Request $request, $loanId)
+    public function specificLoanEnquiryDetails( Request $request, $loanId )
     {
-        $specificLoanEnquiry = LoanEnquiry::find($loanId);
-        $carType=Cartype::lists('type', 'id');
-        return view('general.specificloanenquiry', compact('specificLoanEnquiry','carType'));
+        $specificLoanEnquiry = LoanEnquiry::find( $loanId );
+        $carType             = Cartype::lists( 'type', 'id' );
+        return view( 'general.specificloanenquiry', compact( 'specificLoanEnquiry', 'carType' ) );
     }
 }
