@@ -12,10 +12,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="site/js/jquery.js"></script>
+    <script src="/site/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="site/js/bootstrap.min.js"></script>
+    <script src="/site/js/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>

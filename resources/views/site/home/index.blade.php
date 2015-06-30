@@ -10,43 +10,56 @@
             <div class="col-lg-12">
                 <h2 class="page-header">New Cars Search</h2>
             </div>
-            <div class="col-md-2 col-sm-6">
-                <div align="center"><b>Audi</b></div>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/audi.jpg" alt="">
+            @foreach ($companies as $companiesValue)
+            <div class="col-md-1 col-sm-6">
+                <div align="center"><b>{{$companiesValue->name or ''}}</b></div>
+                <a href="listcars/{{$companiesValue->id}}">
+                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/{{$companiesValue->logo}}" alt="">
                 </a>
             </div>
-            <div class="col-md-2 col-sm-6">
-                <div align="center"><b>Audi</b></div>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/audi.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-6">
-                <div align="center"><b>Audi</b></div>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/audi.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-6">
-                <div align="center"><b>Audi</b></div>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/audi.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-6">
-                <div align="center"><b>Audi</b></div>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/audi.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-2 col-sm-6">
-                <div align="center"><b>Audi</b></div>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/audi.jpg" alt="">
-                </a>
-            </div>
+            @endforeach
         </div>
+        <!-- <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">New Cars Search</h2>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div align="center"><b>Audi</b></div>
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/audi.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div align="center"><b>Toyoto</b></div>
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/toyoto.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div align="center"><b>BMW</b></div>
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/bmw.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div align="center"><b>Porsche</b></div>
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/porsche.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div align="center"><b>Mercedes</b></div>
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/benz.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-2 col-sm-6">
+                <div align="center"><b>Volkswagen</b></div>
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/volkswagen.jpg" alt="">
+                </a>
+            </div>
+        </div> -->
 
         <div class="row">
             <div class="col-lg-12">

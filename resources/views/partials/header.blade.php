@@ -11,12 +11,12 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="site/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/site/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="site/css/modern-business.css" rel="stylesheet">
+    <link href="/site/css/modern-business.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="site/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/site/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -114,6 +114,7 @@
     </nav>
 
     <!-- Header Carousel -->
+    @if(isset($homePageFlag)&&$homePageFlag=='1')
     <header id="myCarousel" class="carousel slide">
 
         <ol class="carousel-indicators">
@@ -150,6 +151,7 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="icon-next"></span>
         </a>
-    </header> 
+    </header>
+    @endif 
       <!-- Page Content -->
     <div class="container">

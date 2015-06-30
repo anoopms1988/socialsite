@@ -44,7 +44,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('editloanenquiry/{id}', 'GeneralController@specificLoanEnquiryDetails');
 });
  Route::get('/', 'site\HomeController@index');
-
+ Route::get('listcars/{id}', 'site\CarController@index');
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
