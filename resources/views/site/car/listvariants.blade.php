@@ -32,8 +32,8 @@
                 <h2 class="page-header">{{$car->name or ''}}<small>variants</small></h2>        
             </div>
             @foreach($variants as $variantsKey=>$variantsValue)
-            <div class="col-md-4">
-                <div class="media">
+            <div class="col-md-4" >
+                <div class="listvariants media" id="variant_{{$variantsValue->id}}" >
                     <div class="pull-left">
                         <span class="fa-stack fa-2x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
@@ -61,7 +61,7 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <h4>Service One</h4>
+                        <h4>car 1</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="#" class="btn btn-primary">Learn More</a>
                     </div>
@@ -76,7 +76,7 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <h4>Service Two</h4>
+                        <h4>car 2</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="#" class="btn btn-primary">Learn More</a>
                     </div>
@@ -91,7 +91,7 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <h4>Service Three</h4>
+                        <h4>car 3</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="#" class="btn btn-primary">Learn More</a>
                     </div>
@@ -106,17 +106,24 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <h4>Service Four</h4>
+                        <h4>car 4</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <a href="#" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-        <!-- Service List -->
-        <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-       
 @endsection
+@section('script')
+<script type="text/javascript">
+	$( document ).ready(function() {
+    	$('.listvariants').click(function () {
+            var id = $(this).attr('id');
+            var splitElements = id.split("_");
+            var variantId = splitElements[1];
+            window.location.href = "{{URL::to(trim(' / '))}}/variant/" + variantId;
+        });
+	});
+</script>
+@endsection
+

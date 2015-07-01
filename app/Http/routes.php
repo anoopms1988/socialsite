@@ -46,6 +46,8 @@ Route::group(['prefix' => 'admin'], function() {
  Route::get('/', 'site\HomeController@index');
  Route::get('listcars/{id}', 'site\CarController@index');
  Route::get('specificcar/{id}', 'site\CarController@viewSpecificCar');
+ Route::resource('variant','site\VariantController');
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
