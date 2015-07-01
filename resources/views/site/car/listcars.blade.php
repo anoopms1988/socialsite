@@ -9,7 +9,7 @@
                     <!-- <small>Subheading</small> -->
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="{{URL::to(trim('  /  '))}}">Home</a>
+                    <li><a href="{{URL::to(trim(' / '))}}">Home</a>
                     </li>
                     <li class="active">{{$company->name or ''}}</li>
                 </ol>
@@ -21,13 +21,13 @@
         <div class="row">
             @foreach($specificCars as $specificCarsKey=>$specificCarsValue)
             <div class="col-md-4 img-portfolio">
-                <a href="portfolio-item.html">
+                <a href="{{URL::to('/specificcar/')}}/{{$specificCarsValue->id}}">
                     <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
                 </a>
                 <h3>
-                    <a href="portfolio-item.html">{{$specificCarsValue->name or ''}}</a>
+                    <a href="{{URL::to('/specificcar/')}}/{{$specificCarsValue->id}}">{{$specificCarsValue->name or ''}}</a>
                 </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <p>{{$specificCarsValue->description or ''}}</p>
             </div>
             @endforeach
         </div>

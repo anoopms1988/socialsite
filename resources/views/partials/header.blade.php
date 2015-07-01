@@ -121,6 +121,7 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
 
 
@@ -135,6 +136,18 @@
                 <div class="fill" style="background-image:url('site/images/sliders/volvo.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Volvo Xc90</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('site/images/sliders/infiniti.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Infiniti x60</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('site/images/sliders/infiniti.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Infiniti x60</h2>
                 </div>
             </div>
             <div class="item">
