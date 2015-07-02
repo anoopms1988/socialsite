@@ -51,8 +51,8 @@
             </div>
 
             <div class="col-md-4">
-                <h3>Project Description</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+                <h3>{{$variant->name or ''}}</h3>
+                <p>{{$variant->car()->first()->description or ''}}</p>
                 <h3>Project Details</h3>
                 <ul>
                     <li>Lorem Ipsum</li>
@@ -70,34 +70,48 @@
             <div class="col-lg-12">
 
                 <ul class="nav nav-tabs nav-justified" id="myTab">
-                    <li class="active"><a data-toggle="tab" href="#service-one"><i class="fa fa-tree"></i> Service One</a>
+                    <li class="active"><a data-toggle="tab" href="#price"><i class="fa fa-car"></i>Price</a>
                     </li>
-                    <li class=""><a data-toggle="tab" href="#service-two"><i class="fa fa-car"></i> Service Two</a>
+                    <li class=""><a data-toggle="tab" href="#specifications"><i class="fa fa-car"></i>Specifications</a>
                     </li>
-                    <li class=""><a data-toggle="tab" href="#service-three"><i class="fa fa-support"></i> Service Three</a>
+                    <li class=""><a data-toggle="tab" href="#reviews"><i class="fa fa-car"></i>Reviews</a>
                     </li>
-                    <li class=""><a data-toggle="tab" href="#service-four"><i class="fa fa-database"></i> Service Four</a>
+                    <li class=""><a data-toggle="tab" href="#pictures"><i class="fa fa-car"></i>Pictures</a>
+                    </li>
+                    <li class=""><a data-toggle="tab" href="#mileage"><i class="fa fa-car"></i>Mileage</a>
+                    </li>
+                    <li class=""><a data-toggle="tab" href="#dealers"><i class="fa fa-car"></i>Dealers</a>
                     </li>
                 </ul>
 
                 <div class="tab-content" id="myTabContent">
-                    <div id="service-one" class="tab-pane fade active in">
-                        <h4>Service One</h4>
+                    <div id="price" class="tab-pane fade active in">
+                        <h4>Price</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                     </div>
-                    <div id="service-two" class="tab-pane fade">
-                        <h4>Service Two</h4>
+                    <div id="specifications" class="tab-pane fade">
+                        <h4>Specifications</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                     </div>
-                    <div id="service-three" class="tab-pane fade">
-                        <h4>Service Three</h4>
+                    <div id="reviews" class="tab-pane fade">
+                        <h4>Reviews</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                     </div>
-                    <div id="service-four" class="tab-pane fade">
-                        <h4>Service Four</h4>
+                    <div id="pictures" class="tab-pane fade">
+                        <h4>Pictures</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                    </div>
+                    <div id="mileage" class="tab-pane fade">
+                        <h4>Mileage</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                    </div>
+                    <div id="dealers" class="tab-pane fade">
+                        <h4>Dealers</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
                     </div>
