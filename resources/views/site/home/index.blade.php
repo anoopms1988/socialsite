@@ -13,7 +13,7 @@
             @foreach ($companies as $companiesValue)
             <div class="col-md-1 col-sm-6">
                 <div align="center"><b>{{$companiesValue->name or ''}}</b></div>
-                <a href="listcars/{{$companiesValue->id}}">
+                <a href="listcars/{{$companiesValue->id}}" class="car-logo">
                     <img class="img-responsive img-portfolio " size="700x450" src="site/images/companylogos/{{$companiesValue->logo}}" alt="">
                 </a>
             </div>

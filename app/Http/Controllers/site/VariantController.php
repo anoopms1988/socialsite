@@ -46,6 +46,7 @@ class VariantController extends Controller {
 	 */
 	public function show($id)
 	{
+
 		$variant=Variant::find($id);
 		return view('site.variant.show',compact('variant'));
 	}
