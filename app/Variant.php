@@ -128,4 +128,12 @@ class Variant extends Model
     {
         return $this->hasOne( 'App\ExteriorFeatures' );
     }
+
+    /**
+     * each variant has unique safety features
+     */
+    public function safetyFeatures()
+    {
+        return $this->hasOne('App\SafetyFeatures' );
+    }
 }

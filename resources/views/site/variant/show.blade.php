@@ -748,8 +748,150 @@
                                     </div> 
                                 </div>
                                 <div id="safety_features" class="tab-pane fade">
-                                    <h4>Messages Tab</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                               Safety Features
+                                            </div>
+                        <!-- /.panel-heading -->
+                                            <div class="panel-body">
+                                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Safety Features</th>
+                                            <th>Availability</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>ABS</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->abs)&&$variant->safetyFeatures()->first()->abs==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Airbags</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->airbags)&&$variant->safetyFeatures()->first()->airbags==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Immobilizer</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->immobilizer)&&$variant->safetyFeatures()->first()->immobilizer==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Hill control</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->hill_control)&&$variant->safetyFeatures()->first()->hill_control==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Central locking</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->central_locking)&&$variant->safetyFeatures()->first()->central_locking==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>EBD</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->ebd)&&$variant->safetyFeatures()->first()->ebd==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Child safety lock</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->child_safety_lock)&&$variant->safetyFeatures()->first()->child_safety_lock==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Traction control</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->traction_control)&&$variant->safetyFeatures()->first()->traction_control==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Hill descent</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->hill_descent)&&$variant->safetyFeatures()->first()->hill_descent==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>ESP</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->esp)&&$variant->safetyFeatures()->first()->esp==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Wheeldrive</td>
+                                            <td>
+                                            @if(isset($variant->safetyFeatures()->first()->wheeldrive)&&$variant->safetyFeatures()->first()->wheeldrive==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        
+
+                                    </tbody>
+                                </table>
+                                            </div>
+                                            </div>
+                                    </div> 
                                 </div>
                             </div>
                     </div>
