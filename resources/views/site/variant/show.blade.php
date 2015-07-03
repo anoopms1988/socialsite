@@ -597,7 +597,150 @@
                                               <p class="fa fa-times"> </p>
                                             @endif
                                             </td>
-                                        </tr>                                      
+                                        </tr> 
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Sunroof</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->sunroof)&&$variant->exteriorFeatures()->first()->sunroof==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr> 
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Rear wiper</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->rear_wiper)&&$variant->exteriorFeatures()->first()->rear_wiper==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr> 
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Rain sensing wipers</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->rain_sensing_wipers)&&$variant->exteriorFeatures()->first()->rain_sensing_wipers==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>   
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Alloy wheels</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->alloy_wheels)&&$variant->exteriorFeatures()->first()->alloy_wheels==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>  
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Roof rails</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->roof_rails)&&$variant->exteriorFeatures()->first()->roof_rails==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>  
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Projector lamps</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->projector_lamps)&&$variant->exteriorFeatures()->first()->projector_lamps==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>  
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Fog lights</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->fog_lights)&&$variant->exteriorFeatures()->first()->fog_lights==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Moon roof</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->moon_roof)&&$variant->exteriorFeatures()->first()->moon_roof==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr> 
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Auto headlamps</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->auto_headlamps)&&$variant->exteriorFeatures()->first()->auto_headlamps==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Steel rims</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->steel_rims)&&$variant->exteriorFeatures()->first()->steel_rims==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Rear spoiler</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->rear_spoiler)&&$variant->exteriorFeatures()->first()->rear_spoilers==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>  
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Chrome grille</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->chrome_grille)&&$variant->exteriorFeatures()->first()->chrome_grille==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr> 
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Daytime running lamps</td>
+                                            <td>
+                                            @if(isset($variant->exteriorFeatures()->first()->daytime_running_lamps)&&$variant->exteriorFeatures()->first()->daytime_running_lamps==1)
+                                              <p class="fa fa-check"> </p>
+                                            @else
+                                              <p class="fa fa-times"> </p>
+                                            @endif
+                                            </td>
+                                        </tr>                        
                                     </tbody>
                                 </table>
                                             </div>
