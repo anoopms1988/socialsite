@@ -885,8 +885,7 @@
                                             @endif
                                             </td>
                                         </tr>
-                                        
-
+                
                                     </tbody>
                                 </table>
                                             </div>
@@ -898,26 +897,162 @@
                     
                     </div>
                     <div id="reviews" class="tab-pane fade">
-                        <h4>Reviews</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <h1 class="page-header">
+                                <small>Reviews</small>
+                            </h1>
+
+                        </div>
+                        </div>
+        <!-- /.row -->
+
+        <!-- Blog Post Row -->
+        @foreach($variant->review()->get() as $reviewKey=>$reviewValue)
+        <div class="row">          
+            <div class="col-md-1 text-center">
+                <p><i class="fa fa-camera fa-4x"></i>
+                </p>
+                <p>June 17, 2014</p>
+            </div>
+            <div class="col-md-5">
+                <a href="blog-post.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/600x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <h3>
+                    <a href="#">Blog Post Title</a>
+                </h3>
+                <p>by <a href="#">Start Bootstrap</a>
+                </p>
+                <p>{{$reviewValue->reviews}}<p>
+                <!-- <a class="btn btn-primary" href="blog-post.html">Read More <i class="fa fa-angle-right"></i></a> -->
+            </div>
+        </div>   
+        <hr>
+         @endforeach 
                     </div>
                     <div id="pictures" class="tab-pane fade">
-                        <h4>Pictures</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                        <div class="row">
+                                <div class="col-lg-12">
+                                    <h1 class="page-header">
+                                        <small>Pictures</small>
+                                    </h1>
+                                    <!-- <ol class="breadcrumb">
+                                        <li><a href="index.html">Home</a>
+                                        </li>
+                                        <li class="active">Four Column Portfolio</li>
+                                    </ol> -->
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-3 img-portfolio">
+                                <a href="portfolio-item.html">
+                                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 img-portfolio">
+                                <a href="portfolio-item.html">
+                                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 img-portfolio">
+                                <a href="portfolio-item.html">
+                                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 img-portfolio">
+                                <a href="portfolio-item.html">
+                                    <img class="img-responsive img-hover" src="http://placehold.it/750x450" alt="">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div id="mileage" class="tab-pane fade">
-                        <h4>Mileage</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                        <br>
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Mileage
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Mileage Highway</th>
+                                                    <th>Mileage City</th>
+                                                    <th>Mileage Overall</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>#</td>
+                                                    <td>{{$variant->fuel()->first()->mileage_highway or ''}}</td>
+                                                    <td>{{$variant->fuel()->first()->mileage_city or ''}}</td>
+                                                    <td>{{$variant->fuel()->first()->mileage_overall or ''}}</td>
+                                                </tr>                             
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
                     </div>
                     <div id="dealers" class="tab-pane fade">
-                        <h4>Dealers</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae repudiandae fugiat illo cupiditate excepturi esse officiis consectetur, laudantium qui voluptatem. Ad necessitatibus velit, accusantium expedita debitis impedit rerum totam id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quibusdam recusandae illum, nesciunt, architecto, saepe facere, voluptas eum incidunt dolores magni itaque autem neque velit in. At quia quaerat asperiores.</p>
+                    <br>
+                    @foreach($variant->car()->first()->company()->first()->dealer()->get() as $dealerKey=>$dealerValue)
+                        <div class="row">
+                            <!-- Map Column -->
+                            <div class="col-md-6">
+                                <h3>{{$dealerValue->name or ''}}</h3>
+                                <p>
+                                   {{$dealerValue->address or ''}}
+                                </p>
+                                <p><i class="fa fa-phone"></i> 
+                                    <abbr title="Phone">P</abbr>: {{$dealerValue->phonenumber or ''}} 
+                                </p>
+                                 <p><i class="fa fa-phone"></i> 
+                                    <abbr title="Mobile">M</abbr>: {{$dealerValue->mobilenumber or ''}} 
+                                </p>
+                                <p><i class="fa fa-envelope-o"></i> 
+                                    <abbr title="Email">E</abbr>: <a href="mailto:{{$dealerValue->email or ''}}">{{$dealerValue->email or ''}}</a>
+                                </p>
+                                <p><i class="fa fa-clock-o"></i> 
+                                    <abbr title="Hours">H</abbr>: {{$dealerValue->opening_hours or ''}}</p>
+                                <ul class="list-unstyled list-inline list-social-icons">
+                                    <li>
+                                        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="portfolio-item.html">
+                                    <img class="img-responsive img-hover" alt="" src="http://placehold.it/700x400">
+                                </a
+                            </div>
+
+                        </div>
                     </div>
-                </div>
+                    <hr>
+                    @endforeach
+
+
 
             </div>
         </div>  

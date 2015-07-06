@@ -33,4 +33,12 @@ class Company extends Model
         return $this->hasOne('App\Assistance');
     }
 
+    /*
+     * Each company have many dealers
+     */
+    public function dealer()
+    {     
+        return $this->hasMany('App\Dealer');
+    }
+
 }
