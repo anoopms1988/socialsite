@@ -908,7 +908,7 @@
         <!-- /.row -->
 
         <!-- Blog Post Row -->
-        @foreach($variant->review()->get() as $reviewKey=>$reviewValue)
+        @foreach($variant->review()->where('is_approved',1)->get() as $reviewKey=>$reviewValue)
         <div class="row">          
             <div class="col-md-1 text-center">
                 <p><i class="fa fa-camera fa-4x"></i>
@@ -1028,18 +1028,18 @@
                                     <abbr title="Hours">H</abbr>: {{$dealerValue->opening_hours or ''}}</p>
                                 <ul class="list-unstyled list-inline list-social-icons">
                                     <li>
-                                        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                                        <a href="{{$dealerValue->facebook_link or ''}}"><i class="fa fa-facebook-square fa-2x"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                                        <a href="{{$dealerValue->linkedin_link or ''}}"><i class="fa fa-linkedin-square fa-2x"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
+                                        <a href="{{$dealerValue->twitter_link or ''}}"><i class="fa fa-twitter-square fa-2x"></i></a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                                        <a href="{{$dealerValue->google_link or ''}}"><i class="fa fa-google-plus-square fa-2x"></i></a>
                                     </li>
-                                </ul>
+                                </ul> 
                             </div>
                             <div class="col-md-6">
                                 <a href="portfolio-item.html">

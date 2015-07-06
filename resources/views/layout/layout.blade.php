@@ -322,7 +322,7 @@
                                         <a href="#">Insurance</a>
                                     </li>
                                     <li>
-                                        <a href="#">Dealers</a>
+                                        <a href="{{action('GeneralController@listDealers')}}">Dealers</a>
                                     </li>  
                                     <li>
                                         <a href="{{action('GeneralController@listVideos')}}">Videos</a>

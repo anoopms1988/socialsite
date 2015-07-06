@@ -42,6 +42,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('listvideos', 'GeneralController@listVideos');
     Route::get('loanenquiry', 'GeneralController@listLoanEnquiryDetails');
     Route::get('editloanenquiry/{id}', 'GeneralController@specificLoanEnquiryDetails');
+    Route::get('dealers', 'GeneralController@listDealers');
+    Route::get('adddealers', 'GeneralController@addDealerDetails');
 });
  Route::get('/', 'site\HomeController@index');
  Route::get('listcars/{id}', 'site\CarController@index');

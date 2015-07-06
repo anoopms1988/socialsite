@@ -10,13 +10,14 @@ use App\Company;
 use App\LoanEnquiry;
 use App\Cartype;
 use App\Http\Requests\AssistanceRequest;
+use App\Dealer;
+use App\City;
 
 class GeneralController extends Controller
 {
     
     /**
      * Create a new controller instance.
-     *
      * @return void
      */
     public function __construct()
@@ -130,5 +131,28 @@ class GeneralController extends Controller
         $specificLoanEnquiry = LoanEnquiry::find( $loanId );
         $carType             = Cartype::lists( 'type', 'id' );
         return view( 'general.specificloanenquiry', compact( 'specificLoanEnquiry', 'carType' ) );
+    }
+    
+    /**
+     * function to insert details into db
+     * @param Request $request
+     * @return view
+     */
+    public function listDealers( Request $request )
+    {
+        $company = Company::lists( 'name', 'id' );
+        $city    =City::lists( 'name', 'id' );
+        $dealers = Dealer::where( 'is_active', 1 )->paginate( Config::get( 'constants.paginationCount' ) );
+        return view( 'general.listdealers', compact( 'dealers','company','city' ) );
+    }
+    
+    /**
+     * function to insert dealer details
+     * @param Request $request
+     */
+    public function addDealerDetails( Request $request )
+    {
+        // code...
+        
     }
 }
